@@ -1,0 +1,18 @@
+[include]
+    path = ~/.gitconfig.local
+[core]
+	quotepath = false
+	ignorecase = false
+	safecrlf = true
+	autocrlf = false
+	pager = LESSCHARSET=utf-8 less
+[push]
+	default = simple
+[pull]
+	ff = only
+[merge]
+	ff = false
+[color]
+	ui = true
+[init]
+	defaultBranch = main
