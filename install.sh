@@ -1,7 +1,20 @@
 #!/bin/bash
 
-# dotfiles
+# path
 DOTPATH=~/.dotfiles
+
+# mkdir
+if [[ ! -d ${HOME}/local ]]; then
+	mkdir ${HOME}/local
+fi
+if [[ ! -d ${HOME}/bin ]]; then
+	mkdir ${HOME}/bin
+fi
+if [[ ! -d ${HOME}/.config ]]; then
+	mkdir ${HOME}/.config
+fi
+
+# dotfiles
 for file in .??*
 do
 	[ ${file} = ".git" ] && continue
@@ -15,12 +28,4 @@ ln -snfv ${DOTPATH}/.config/nvim ${HOME}/.config/nvim
 # tmux plugin
 if [[ ! -d ${HOME}/.tmux/plugins/tpm ]]; then
 	git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
-fi
-
-# dir
-if [[ ! -d ${HOME}/local ]]; then
-	mkdir ${HOME}/local
-fi
-if [[ ! -d ${HOME}/bin ]]; then
-	mkdir ${HOME}/bin
 fi
