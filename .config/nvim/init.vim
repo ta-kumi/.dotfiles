@@ -114,20 +114,6 @@ set hlsearch
 "" ESC連打でハイライト解除
 nnoremap <silent><Esc><Esc> :nohlsearch<CR><Esc>
 
-" マウス操作の有効化
-if has('mouse')
-	set mouse=a
-	if !has('nvim')
-		if has('mouse_sgr')
-			set ttymouse=sgr
-		elseif v:version > 703 || v:version is 703 && has('patch632')
-			set ttymouse=sgr
-		else
-			set ttymouse=xterm2
-		endif
-	endif
-endif
-
 " ペースト時のスマートインデント無効化
 if &term =~ "xterm"
 	let &t_SI .= "\e[?2004h"
