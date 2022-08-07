@@ -8,7 +8,7 @@ path=($HOME/local/bin $path)
 path=($HOME/.local/bin $path)
 path=($HOME/bin $path)
 ## mac gnu commands path設定
-PATH="PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH""
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
