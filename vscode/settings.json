@@ -58,7 +58,7 @@
   // フォント設定
   "editor.fontFamily": "Consolas, 'Courier New', monosipace", // フォント設定
   "editor.fontSize": 17, // フォントサイズ
-  "editor.lineHeight": 17, // 行間幅
+  "editor.lineHeight": 16, // 行間幅
   "editor.letterSpacing": -1.0, // 文字の横幅
   "window.zoomLevel": 0.7,
   // アイコン設定（拡張機能）
