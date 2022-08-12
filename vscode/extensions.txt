@@ -12,7 +12,6 @@ formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 formulahendry.code-runner
 IBM.output-colorizer
-jaycetyle.vscode-gnu-global
 jumpinjackie.vscode-map-preview
 mads-hartmann.bash-ide-vscode
 mhutchie.git-graph

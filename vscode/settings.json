@@ -178,10 +178,6 @@
   // =====================================================
   /* 拡張機能ごとの設定 */
   // =====================================================
-  // --- C/C++ GNU Global
-  "gnuGlobal.autoUpdate": "Enabled",
-  "gnuGlobal.gtagsForceCpp": "Enabled",
-
   // --- C#
   "omnisharp.useGlobalMono": "always",
   "omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/Current",
