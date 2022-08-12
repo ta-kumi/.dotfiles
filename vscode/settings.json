@@ -180,8 +180,6 @@
   // =====================================================
   // --- C#
   "omnisharp.useGlobalMono": "always",
-  "omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/Current",
-  "omnisharp.useModernNet": false,
 
   // --- Code Runner
   "code-runner.runInTerminal": true,
