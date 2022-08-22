@@ -12,6 +12,7 @@ formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 formulahendry.code-runner
 IBM.output-colorizer
+jeff-hykin.better-cpp-syntax
 jumpinjackie.vscode-map-preview
 mads-hartmann.bash-ide-vscode
 mhutchie.git-graph
