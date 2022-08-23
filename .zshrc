@@ -128,6 +128,8 @@ alias db='docker build -t *imagename* .'
 alias d-='docker-compose'
 alias d-u='docker-compose up -d'
 alias d-d='docker-compose down'
+## picocom
+alias pico='sudo picocom /dev/ttyUSB0 -b 115200'
 ## commands
 alias to='touch'
 alias wi='which'
