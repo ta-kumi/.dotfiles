@@ -32,8 +32,6 @@ bindkey "^[[3~" delete-char
 ## Ctrl+カーソルキー移動の有効化
 bindkey ";5C" forward-word
 bindkey ";5D" backward-word
-bindkey "5C" forward-word
-bindkey "5D" backward-word
 ## Ctrl-Dでログアウトしない
 setopt ignoreeof
 
