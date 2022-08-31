@@ -38,6 +38,11 @@
   { "key": "ctrl+k ctrl+s", "command": "-workbench.action.openGlobalKeybindings" },
   { "key": "ctrl+shift+.", "command": "workbench.action.openGlobalKeybindingsFile" },
 
+  // ==================== エディタ設定 ====================
+  // 改行設定
+  { "key": "ctrl+enter", "command": "-editor.action.insertLineAfter", "when": "editorTextFocus && !editorReadonly" },
+  { "key": "ctrl+shift+enter", "command": "-editor.action.insertLineBefore", "when": "editorTextFocus && !editorReadonly" },
+
   // ==================== ターミナル設定 ====================
   // キーかぶり削除
   { "key": "ctrl+p", "command": "-workbench.action.quickOpen" },
