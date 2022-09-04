@@ -152,8 +152,8 @@ call plug#begin('~/.config/nvim/plugins')
 	Plug 'machakann/vim-highlightedyank'  " yank時にハイライトする
 	" 便利系
 	Plug 'easymotion/vim-easymotion'  " easy-motion
-	Plug 'tpope/vim-surround'  "" surround
-	Plug 'tpope/vim-commentary'  "" コメントコマンド
+	Plug 'tpope/vim-surround'  " surround
+	Plug 'tpope/vim-commentary'  " コメントコマンド
 	Plug 'jiangmiao/auto-pairs'  " カッコ自動補完
 	Plug 'osyo-manga/vim-anzu'  " 検索ヒット数表示
 	" git系
