@@ -10,12 +10,12 @@ donjayamanne.githistory
 dunstontc.viml
 eamodio.gitlens
 ecmel.vscode-html-css
-eightHundreds.vscode-drawio
 emilast.LogFileHighlighter
 formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 formulahendry.code-runner
 Gruntfuggly.todo-tree
+hediet.vscode-drawio
 IBM.output-colorizer
 jeff-hykin.better-cpp-syntax
 jumpinjackie.vscode-map-preview
@@ -24,6 +24,7 @@ mhutchie.git-graph
 ms-azuretools.vscode-docker
 MS-CEINTL.vscode-language-pack-ja
 ms-dotnettools.csharp
+ms-kubernetes-tools.vscode-kubernetes-tools
 ms-python.isort
 ms-python.python
 ms-python.vscode-pylance
