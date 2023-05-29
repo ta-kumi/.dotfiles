@@ -7,17 +7,15 @@ export XDG_CONFIG_HOME=$HOME/.config
 path=($HOME/local/bin $path)
 path=($HOME/.local/bin $path)
 path=($HOME/bin $path)
-## mac gnu commands path設定
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/findutils/libexec/gnuman:$MANPATH"
-PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH"
-PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/gnu-tar/libexec/gnuman:$MANPATH"
-PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
+
+# brew install commands path設定
+## coreutils, findutils, grep, gawk, gnu-sed, gzip, gnu-tar
+if type brew &> /dev/null; then
+	brewpath="/opt/homebrew"
+	for bindir in "${brewpath}/opt/"*"/libexec/gnubin"; do export PATH=$bindir:$PATH; done
+	for mandir in "${brewpath}/opt/"*"/libexec/gnuman"; do export MANPATH=$mandir:$MANPATH; done
+	unset brewpath
+fi
 
 # メタ文字対策
 setopt nonomatch
@@ -41,11 +39,12 @@ setopt ignoreeof
 ## sudo
 alias sudo='sudo '
 ## ls
-alias la='ls -a'
-alias ll='ls -lh'
-alias lla='ls -lha'
-alias lls='ls -lhS'
-alias llt='ls -lht'
+alias ls='ls -F --color'
+alias la='ls -F --color -a'
+alias ll='ls -F --color -lh'
+alias lla='ls -F --color -lha'
+alias lls='ls -F --color -lhS'
+alias llt='ls -F --color -lht'
 ## files
 alias md='mkdir -p'
 alias rm='rm -i'
@@ -54,8 +53,8 @@ alias mv='mv -i'
 ## find
 alias fn='find -iname'
 ## grep
-alias gr='grep --color -irn'
-alias grf='grep --color -irl'
+alias gr='grep --color -irn --include="*"'
+alias grl='grep --color -irl --include="*"'
 ## global alias
 alias -g L='| less'
 alias -g H='| head -n'
@@ -90,7 +89,7 @@ alias gbn='git branch --no-merged'
 alias gmr='git merge'
 alias gcp='git cherry-pick -e'
 alias gdump='git cat-file -p'
-alias gcl='git clone'
+alias gcl='git clone --recursive'
 alias gfe='git fetch --prune'
 alias gps='git push'
 alias gpsb='git push origin $(git rev-parse --abbrev-ref HEAD)'
@@ -128,6 +127,20 @@ alias db='docker build -t *imagename* .'
 alias d-='docker-compose'
 alias d-u='docker-compose up -d'
 alias d-d='docker-compose down'
+## kubernetes
+alias k='kubectl'
+alias ki='kubectl cluster-info'
+alias kg='kubectl get'
+alias kga='kubectl get all -o wide'
+alias kl='kubectl logs'
+alias kld='kubectl describe'
+alias ktest='kubectl run busybox --image busybox --restart Never --rm -it sh'
+alias kr='kubectl run'
+alias ke='kubectl exec -it *pod* -c *container* /bin/bash'
+alias kc='kubectl create'
+alias ka='kubectl apply'
+alias ks='kubectl scale'
+alias kd='kubectl delete'
 ## picocom
 alias pico='sudo picocom /dev/ttyUSB0 -b 115200'
 ## commands
@@ -152,17 +165,6 @@ export LSCOLORS=gxfxcxdxbxegedabagacag
 export LS_COLORS='di=36;40:ln=35;40:so=32;40:pi=33;40:ex=31;40:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;46'
 # 補完候補もLS_COLORSに合わせて色が付くようにする
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-# lsがカラー表示になるようエイリアスを設定
-case "${OSTYPE}" in
-	 darwin*)
-		 # Mac
-		 alias ls="ls -GF"
-		 ;;
-	 linux*)
-		 # Linux
-		 alias ls='ls -F --color'
-		 ;;
-esac
 
 # プロンプト系
 ## プロンプト表示設定
@@ -194,6 +196,10 @@ setopt auto_list
 setopt auto_menu
 ## tab,矢印キーで補完選択
 zstyle ':completion:*:default' menu select=1
+## kubectl
+if type kubectl &> /dev/null; then
+	source <(kubectl completion zsh)
+fi
 
 # 移動系
 ## ディレクトリ名だけで移動

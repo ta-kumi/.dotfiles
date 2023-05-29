@@ -22,10 +22,14 @@
   "files.insertFinalNewline": true,
   // 保存時に最終行の空行をトリミング
   "files.trimFinalNewlines": true,
+  // 選択文字列にクウォート系を記述する際、クウォートで囲まない（選択文字列を上書き）。
+  "editor.autoSurround": "never",
   // スペニットを最後に表示する
   "editor.snippetSuggestions": "bottom",
   // ターミナル上では選択したら自動でコピー
   "terminal.integrated.copyOnSelection": true,
+  // ターミナル上での複数行コピペを警告しない
+  "terminal.integrated.enableMultiLinePasteWarning": false,
   // ターミナルのタブを表示しない
   "terminal.integrated.tabs.enabled": false,
   // 定義参照時に必ずpeekを開く
@@ -60,7 +64,7 @@
   "editor.fontSize": 17, // フォントサイズ
   "editor.lineHeight": 16, // 行間幅
   "editor.letterSpacing": -1.0, // 文字の横幅
-  "window.zoomLevel": 0.7,
+  "window.zoomLevel": 0.7, // ズームレベル
   // アイコン設定（拡張機能）
   "workbench.iconTheme": "vscode-icons",
   // ミニマップを表示しない
@@ -74,6 +78,7 @@
   "editor.guides.bracketPairs": true,
 
   /* 色設定カスタマイズ */
+  "workbench.colorTheme": "Default Dark+",
   "workbench.colorCustomizations": {
     // エディタバックグラウンドの色
     "editor.background": "#131313",
@@ -87,6 +92,8 @@
   },
 
   /* 定義移動表示系 */
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.enablePreviewFromCodeNavigation": true,
   "editor.gotoLocation.alternativeDefinitionCommand": "",
   "editor.gotoLocation.alternativeTypeDefinitionCommand": "",
   "editor.gotoLocation.multipleDeclarations": "gotoAndPeek",
@@ -123,12 +130,13 @@
     "editor.tabSize": 4,
   },
   "[java]": {
-    "editor.insertSpaces": false,
+    "editor.insertSpaces": true,
     "editor.tabSize": 4,
   },
   "[python]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
+    "editor.formatOnType": true,
   },
   "[ruby]": {
     "editor.insertSpaces": true,
@@ -181,8 +189,15 @@
   // --- C#
   "omnisharp.useGlobalMono": "always",
 
+  // --- Java
+  "java.inlayHints.parameterNames.enabled": "none",
+  "boot-java.rewrite.reconcile": true,
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.compile.nullAnalysis.mode": "automatic",
+
   // --- Code Runner
   "code-runner.runInTerminal": true,
+  "code-runner.preserveFocus": false,
   "code-runner.executorMap": {
     "javascript": "node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
@@ -239,6 +254,9 @@
 
   // --- Visual Studio IntelliCode
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+  // --- git
+  "git.openRepositoryInParentFolders": "always",
 
   // --- vim
   // - option -
