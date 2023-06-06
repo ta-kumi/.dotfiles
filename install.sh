@@ -10,8 +10,8 @@ fi
 if [[ ! -d ${HOME}/bin ]]; then
 	mkdir ${HOME}/bin
 fi
-if [[ ! -d ${HOME}/.config ]]; then
-	mkdir ${HOME}/.config
+if [[ ! -d ${HOME}/.config/zsh ]]; then
+	mkdir ${HOME}/.config/zsh
 fi
 
 # dotfiles
@@ -28,4 +28,9 @@ ln -snfv ${DOTPATH}/.config/nvim ${HOME}/.config/nvim
 # tmux plugin
 if [[ ! -d ${HOME}/.tmux/plugins/tpm ]]; then
 	git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
+fi
+
+# zsh completion
+if [[ ! -e ${HOME}/.config/zsh/az.completion ]]; then
+	wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ${HOME}/.config/zsh/az.completion
 fi

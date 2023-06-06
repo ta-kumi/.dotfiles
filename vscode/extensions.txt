@@ -14,6 +14,7 @@ emilast.LogFileHighlighter
 formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 formulahendry.code-runner
+golang.go
 Gruntfuggly.todo-tree
 hediet.vscode-drawio
 IBM.output-colorizer

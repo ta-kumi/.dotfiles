@@ -187,6 +187,7 @@ RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 # 補完機能系
 ## 補完有効化
+autoload -Uz bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 ## 補完で大文字にもマッチ
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -199,6 +200,10 @@ zstyle ':completion:*:default' menu select=1
 ## kubectl
 if type kubectl &> /dev/null; then
 	source <(kubectl completion zsh)
+fi
+## azure cli
+if [[ -f "$HOME/.config/zsh/az.completion" ]]; then
+  source $HOME/.config/zsh/az.completion
 fi
 
 # 移動系
