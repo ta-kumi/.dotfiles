@@ -262,14 +262,14 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 # プログラミング関係
-## GTAGS設定
-export GTAGSFORCECPP=1
-## CTAGS設定
-alias ctags-vscode='ctags -R --fields=+nKz --languages=-C,-C++,-C#,-Java,-JavaScript,-PHP,-Ruby,-Python'
 ## anyenv
 if [[ -d $HOME/.anyenv ]]; then
 	export PATH="$HOME/.anyenv/bin:$PATH"
 	eval "$(anyenv init -)"
+fi
+## go
+if type go &> /dev/null; then
+	path=($HOME/go/bin $path)
 fi
 
 # その他
