@@ -180,7 +180,7 @@ func git_prompt() {
 		return
 	fi
 
-	local git_branch_name="$(git branch --show-current 2> /dev/null)"
+	local git_branch_name="$(git branch 2> /dev/null | grep "^\*" | sed "s/^\* //g")"
 	if [[ -z ${git_branch_name} ]]; then
 		return
 	fi
