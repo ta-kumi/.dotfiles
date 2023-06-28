@@ -1,6 +1,6 @@
 # 環境変数
-## 日本語設定
-export LANG=ja_JP.UTF-8
+## 言語設定
+export LANG=en_US.UTF-8
 ## XDG configuration
 export XDG_CONFIG_HOME=$HOME/.config
 ## path設定
