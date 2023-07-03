@@ -186,6 +186,8 @@
   // =====================================================
   /* 拡張機能ごとの設定 */
   // =====================================================
+  // -- C++
+  "C_Cpp.autocompleteAddParentheses": true,
   // --- C#
   "omnisharp.useGlobalMono": "always",
 
@@ -194,6 +196,13 @@
   "boot-java.rewrite.reconcile": true,
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.compile.nullAnalysis.mode": "automatic",
+
+  // --- Python
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.autoImportCompletions": true,
+
+  // --- GoLang
+  "go.toolsManagement.autoUpdate": true,
 
   // --- Code Runner
   "code-runner.runInTerminal": true,
