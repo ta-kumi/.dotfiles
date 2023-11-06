@@ -1,0 +1,22 @@
+{
+	"main": {
+		"prefix": "ffmain",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"",
+			"using namespace std;",
+			"",
+			"using ll = long long;",
+			"#define  rep(i, n, m) for (ll i = (ll)(n); i < (ll)(m); ++i)",
+			"#define rrep(i, n, m) for (ll i = (ll)(m - 1); i >= (ll)(n); --i)",
+			"#define  all(a, n, m) ((a).begin() + (n)), ((a).end() + (m))",
+			"#define rall(a, n, m) ((a).rbegin() - (m)), ((a).rend() - (n))",
+			"",
+			"int main(void)",
+			"{",
+			"\t$1",
+			"}"
+		],
+		"description": "main関数"
+	}
+}
