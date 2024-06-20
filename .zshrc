@@ -174,34 +174,19 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 PROMPT="%F{white}[%n@%m] %F{yellow}%d%F{reset_color}
 %# "
 ## git設定
+autoload -Uz vcs_info
 setopt prompt_subst
-func git_prompt() {
-	if ! type git &> /dev/null; then
-		return
-	fi
-
-	local git_branch_name="$(git branch 2> /dev/null | grep "^\*" | sed "s/^\* //g")"
-	if [[ -z ${git_branch_name} ]]; then
-		return
-	fi
-
-	local git_status="$(git status 2> /dev/null)"
-	local git_status_str="%F{green}"
-	if [[ ${git_status} =~ "Untracked files" ]]; then
-		git_status_str+="%F{red}X "
-	fi
-	if [[ ${git_status} =~ "Changes to be committed" ]]; then
-		git_status_str+="%F{yellow}!"
-	fi
-	if [[ ${git_status} =~ "Changes not staged for commit" ]]; then
-		git_status_str+="%F{red}+"
-	fi
-	git_status_str+="[${git_branch_name}]%F{reset_color}"
-
-	echo "${git_status_str}"
-}
-RPROMPT='$(git_prompt)'
-
+zstyle ':vcs_info:git:*' check-for-changes true
+### stageされているがコミットされていないものがあれば[黄色で!]
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+### addされていないものがあれば[赤色で+]
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+### 通常状態なら[緑色で]
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+### 上記の表示形式
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 # 補完機能系
 ## 補完有効化
