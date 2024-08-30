@@ -23,6 +23,9 @@ do
 
 	ln -snfv $DOTPATH/${file} ${HOME}/${file}
 done
+if [[ ! -e ${HOME}/.config ]]; then
+	mkdir ${HOME}/.config
+fi
 ln -snfv ${DOTPATH}/.config/nvim ${HOME}/.config/nvim
 
 # tmux plugin
