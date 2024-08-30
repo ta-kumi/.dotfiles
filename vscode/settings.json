@@ -29,7 +29,7 @@
   // ターミナル上では選択したら自動でコピー
   "terminal.integrated.copyOnSelection": true,
   // ターミナル上での複数行コピペを警告しない
-  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
   // ターミナルのタブを表示しない
   "terminal.integrated.tabs.enabled": false,
   // 定義参照時に必ずpeekを開く
@@ -211,7 +211,7 @@
     "javascript": "node",
     "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
     "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
-    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "cpp": "cd $dir && g++ -std=c++20 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "php": "php",
     "python": "python -u",
