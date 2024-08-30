@@ -15,11 +15,11 @@
   { "key": "ctrl+j", "command": "workbench.action.terminal.toggleTerminal" },
   { "key": "ctrl+shift+j", "command": "workbench.action.toggleMaximizedPanel" },
   { "key": "ctrl+shift+e", "command": "workbench.files.action.focusOpenEditorsView"},
+  { "key": "ctrl+shift+p", "command": "workbench.action.showCommands" },
   // side bar
   { "key": "ctrl+shift+b", "command": "workbench.action.toggleSidebarVisibility" },
   { "key": "ctrl+shift+e", "command": "workbench.view.explorer" },
   { "key": "ctrl+shift+f", "command": "workbench.action.findInFiles" },
-  { "key": "ctrl+shift+r", "command": "sshHosts.focus" },
   { "key": "ctrl+shift+m", "command": "bookmarksExplorer.focus" },
   // コマンドパレットでの移動
   { "key": "ctrl+n", "command" :"workbench.action.quickOpenSelectNext", "when" :"inQuickOpen" },
@@ -35,7 +35,6 @@
   { "key": "ctrl+,", "command": "workbench.action.openSettings" },
   { "key": "ctrl+shift+,", "command": "workbench.action.openSettingsJson" },
   { "key": "ctrl+.", "command": "workbench.action.openGlobalKeybindings" },
-  { "key": "ctrl+k ctrl+s", "command": "-workbench.action.openGlobalKeybindings" },
   { "key": "ctrl+shift+.", "command": "workbench.action.openGlobalKeybindingsFile" },
 
   // ==================== エディタ設定 ====================
@@ -74,6 +73,15 @@
   { "key": "ctrl+alt+m", "command": "-code-runner.stop" },
   // bookmarks
   { "key": "ctrl+m", "command": "bookmarks.toggle", "when": "editorTextFocus" },
+  // copilot
+  { "key": "ctrl+/", "command": "inlineChat.start", "when": "editorFocus && inlineChatHasProvider && !editorReadonly" },
+  { "key": "ctrl+/", "command": "inlineChat.close", "when": "inlineChatHasProvider && inlineChatVisible" },
+  { "key": "ctrl+enter", "command": "inlineChat.acceptChanges", "when": "inlineChatHasProvider && inlineChatVisible && !inlineChatDocumentChanged || inlineChatHasProvider && inlineChatVisible && config.inlineChat.mode != 'preview'" },
+  { "key": "ctrl+shift+/", "command": "workbench.panel.chatSidebar" },
+  { "key": "ctrl+/", "command": "workbench.action.terminal.chat.start", "when": "terminalChatAgentRegistered && terminalFocusInAny && terminalHasBeenCreated || terminalChatAgentRegistered && terminalFocusInAny && terminalProcessSupported" },
+  { "key": "ctrl+/", "command": "workbench.action.terminal.chat.close", "when": "terminalChatFocus && terminalChatVisible" },
+  { "key": "ctrl+enter", "command": "workbench.action.terminal.chat.runCommand", "when": "terminalChatResponseContainsCodeBlock && terminalHasBeenCreated && !terminalChatActiveRequest && !terminalChatResponseContainsMultipleCodeBlocks || terminalChatResponseContainsCodeBlock && terminalProcessSupported && !terminalChatActiveRequest && !terminalChatResponseContainsMultipleCodeBlocks" },
 
   // 追加分
+
 ]
