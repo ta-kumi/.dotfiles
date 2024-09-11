@@ -149,6 +149,16 @@ alias pico='sudo picocom /dev/ttyUSB0 -b 115200'
 ## commands
 alias to='touch'
 alias wi='which'
+## rust
+alias c='cargo'
+alias cn='cargo new'
+alias cr='cargo run'
+alias cb='cargo build'
+alias cc='cargo check'
+alias ct='cargo test'
+alias cs='cargo search'
+alias ci='cargo install'
+alias cu='cargo uninstall'
 ## alias expand
 function expand-alias() {
 	zle _expand_alias
@@ -200,13 +210,24 @@ setopt auto_list
 setopt auto_menu
 ## tab,矢印キーで補完選択
 zstyle ':completion:*:default' menu select=1
+## brew
+if type brew &> /dev/null; then
+	FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+	autoload -Uz compinit && compinit
+fi
 ## kubectl
 if type kubectl &> /dev/null; then
 	source <(kubectl completion zsh)
 fi
 ## azure cli
+## curl -sLO 'https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion'
 if [[ -f "$HOME/.config/zsh/az.completion" ]]; then
   source $HOME/.config/zsh/az.completion
+fi
+## rust
+if type rustup &> /dev/null; then
+	source <(rustup completions zsh)
+	# source <(rustup completions zsh cargo)
 fi
 
 # 移動系
