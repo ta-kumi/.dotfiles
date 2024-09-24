@@ -11,6 +11,7 @@ dunstontc.viml
 eamodio.gitlens
 ecmel.vscode-html-css
 emilast.logfilehighlighter
+fill-labs.dependi
 formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 formulahendry.code-runner
@@ -57,13 +58,15 @@ redhat.java
 redhat.vscode-yaml
 richardwillis.vscode-gradle-extension-pack
 rogalmic.bash-debug
+rust-lang.rust-analyzer
 ryu1kn.partial-diff
 saikou9901.evilinspector
 sgryjp.japanese-word-handler
 shardulm94.trailing-spaces
 sianglim.slim
+tamasfe.even-better-toml
 twxs.cmake
-usernamehw.errorlens
+vadimcn.vscode-lldb
 visualstudioexptteam.intellicode-api-usage-examples
 visualstudioexptteam.vscodeintellicode
 vmware.vscode-boot-dev-pack
