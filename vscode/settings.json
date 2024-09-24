@@ -4,6 +4,8 @@
   // =====================================================
   // WelcomPage非表示
   "workbench.startupEditor": "none",
+  // 空ファイルのヒント非表示
+  "workbench.editor.empty.hint": "hidden",
   // 新規ワークスペースを別ウインドウで開く
   "window.openFoldersInNewWindow": "on",
   // ウインドウ上部に表示する文字列の設定
@@ -59,6 +61,8 @@
   "editor.smoothScrolling": true,
   // 現在の行を強調
   "editor.renderLineHighlight": "all",
+  // inlay hitsを無効化
+  "editor.inlayHints.enabled": "off",
   // フォント設定
   "editor.fontFamily": "Consolas, 'Courier New', monosipace", // フォント設定
   "editor.fontSize": 17, // フォントサイズ
@@ -76,6 +80,15 @@
   // BracketPairColorizeを有効にする
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
+  // 可変変数につくアンダーラインを無効化
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true,
+    "rules": {
+      "*.mutable": {
+        "underline": false,
+      }
+    }
+  },
 
   /* 色設定カスタマイズ */
   "workbench.colorTheme": "Default Dark+",
@@ -123,6 +136,14 @@
   },
   "[cpp]": {
     "editor.insertSpaces": false,
+    "editor.tabSize": 4,
+  },
+  "[go]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 4,
+  },
+  "[rust]": {
+    "editor.insertSpaces": true,
     "editor.tabSize": 4,
   },
   "[csharp]": {
@@ -188,8 +209,12 @@
   // =====================================================
   // -- C++
   "C_Cpp.autocompleteAddParentheses": true,
-  // --- C#
-  "omnisharp.useGlobalMono": "always",
+
+  // --- Rust
+  "rust-analyzer.completion.callable.snippets": "add_parentheses",
+
+  // --- GoLang
+  "go.toolsManagement.autoUpdate": true,
 
   // --- Java
   "java.inlayHints.parameterNames.enabled": "none",
@@ -197,12 +222,10 @@
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.compile.nullAnalysis.mode": "automatic",
 
+
   // --- Python
   "python.analysis.completeFunctionParens": true,
   "python.analysis.autoImportCompletions": true,
-
-  // --- GoLang
-  "go.toolsManagement.autoUpdate": true,
 
   // --- Code Runner
   "code-runner.runInTerminal": true,
@@ -263,6 +286,11 @@
 
   // --- Visual Studio IntelliCode
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+  // GitHub Copilot
+  "chat.experimental.detectParticipant.enabled": true,
+  "github.copilot.chat.experimental.startDebugging.enabled": true,
+  "github.copilot.chat.experimental.temporalContext.enabled":true,
 
   // --- git
   "git.openRepositoryInParentFolders": "always",
@@ -374,5 +402,6 @@
     // easy-searchキーバインド
     {"before":["s"], "after":["<Leader>","<Leader>","2","s"]},
   ],
+
   /* ----------- ここまで --------------*/
 }
