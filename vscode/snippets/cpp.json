@@ -180,18 +180,18 @@
 		"description": "ナップザック問題"
 	},
 	"segument_tree" : {
-		"prefix": "ffsegumenttree",
+		"prefix": "ffsegmenttree",
 		"body": [
 			"// 概要：セグメントツリー",
 			"// 補足：配列の特定区間からデータを取得するクエリを効率化",
-			"class SeguentTree {",
+			"class SegmentTree {",
 			"private:",
 			"\tll size;",
 			"\tvector<ll> node;",
 			"",
 			"public:",
 			"\t// 配列サイズsize",
-			"\tSeguentTree(const ll size) {",
+			"\tSegmentTree(const ll size) {",
 			"\t\tthis->size = size;",
 			"\t\tnode = vector<ll>(size * 2, 0);",
 			"\t}",

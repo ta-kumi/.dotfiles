@@ -212,16 +212,14 @@
 
   // --- Rust
   "rust-analyzer.completion.callable.snippets": "add_parentheses",
+  "rust-analyzer.check.command": "clippy",
 
   // --- GoLang
   "go.toolsManagement.autoUpdate": true,
 
   // --- Java
-  "java.inlayHints.parameterNames.enabled": "none",
-  "boot-java.rewrite.reconcile": true,
   "java.configuration.updateBuildConfiguration": "automatic",
   "java.compile.nullAnalysis.mode": "automatic",
-
 
   // --- Python
   "python.analysis.completeFunctionParens": true,
@@ -261,7 +259,7 @@
     "applescript": "osascript",
     "clojure": "lein exec",
     "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-    "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    "rust": "cargo run",
     "racket": "racket",
     "scheme": "csi -script",
     "ahk": "autohotkey",
