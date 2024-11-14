@@ -239,6 +239,10 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 ## cd -[Tab]で移動履歴検索
 setopt auto_pushd
+## cdしたら自動でlsする
+chpwd() {
+	ls
+}
 
 # 区切り文字系
 ## 単語の区切り文字設定
