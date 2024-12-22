@@ -59,10 +59,14 @@
   // =====================================================
   // 表示設定
   // =====================================================
-  // スムーズ系
+  // スムーズスクロール
   "editor.smoothScrolling": true,
-  // 現在の行を強調
-  "editor.renderLineHighlight": "all",
+  // カーソル下のハイライトを無効化
+  "editor.occurrencesHighlight": "off",
+  // カッコのハイライトを無効
+  "editor.matchBrackets": "near",
+  // BracketPairColorizeを有効にする
+  "editor.bracketPairColorization.enabled": true,
   // inlay hitsを無効化
   "editor.inlayHints.enabled": "off",
   // フォント設定
@@ -79,9 +83,6 @@
   "editor.renderWhitespace": "boundary",
   // 制御文字を表示する
   "editor.renderControlCharacters": true,
-  // BracketPairColorizeを有効にする
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": true,
   // 可変変数につくアンダーラインを無効化
   "editor.semanticTokenColorCustomizations": {
     "enabled": true,
@@ -287,8 +288,8 @@
   // --- Visual Studio IntelliCode
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
-  // --- GitHub Copilot
-  "chat.experimental.detectParticipant.enabled": true,
+  // -- GitHub Copilot
+  "chat.detectParticipant.enabled": true,
 
   // --- git
   "git.openRepositoryInParentFolders": "always",
@@ -298,12 +299,10 @@
 
   // --- vim
   // - option -
-  "vim.statusBarColorControl": false,  // 重さ軽減対策
   "vim.useSystemClipboard": true,  // クリップボードを有効化
-  "vim.hlsearch": true,  // 検索結果を強調
+  "vim.hlsearch": false,  // 検索結果のハイライトを無効化
   "vim.visualstar": true,  // *で配下のワードを検索
   "vim.foldfix": true,  //  移動の際に折りたたみを展開しない
-  "vim.debug.silent": true,  // デバッグログ抑制
   "vim.easymotion": true,  // easy-motion有効化
   "vim.highlightedyank.enable": true,  // yank時にハイライトする
   "vim.easymotionKeys": ";hklyuiopnm,qwertasdgzxcvbjf",  // easy-motionに使用するキー
