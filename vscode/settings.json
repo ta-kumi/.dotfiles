@@ -28,6 +28,8 @@
   "editor.autoSurround": "never",
   // スペニットを最後に表示する
   "editor.snippetSuggestions": "bottom",
+  // デフォルトターミナルを変更する
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
   // ターミナル上では選択したら自動でコピー
   "terminal.integrated.copyOnSelection": true,
   // ターミナル上での複数行コピペを警告しない
