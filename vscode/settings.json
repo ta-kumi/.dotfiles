@@ -262,7 +262,7 @@
     "applescript": "osascript",
     "clojure": "lein exec",
     "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
-    "rust": "cargo run # $filename",
+    "rust": "RUST_BACKTRACE=1 cargo run # $filename",
     "racket": "racket",
     "scheme": "csi -script",
     "ahk": "autohotkey",
@@ -290,6 +290,7 @@
 
   // -- GitHub Copilot
   "chat.detectParticipant.enabled": true,
+  "github.copilot.editor.enableAutoCompletions": false,
 
   // --- git
   "git.openRepositoryInParentFolders": "always",
