@@ -53,8 +53,6 @@
   // セキュリティ系オプションの無効化
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.emptyWindow": false,
-  // ファイルの自動保存を有効化
-  "files.autoSave": "afterDelay",
 
   // =====================================================
   // 表示設定
@@ -62,7 +60,7 @@
   // スムーズスクロール
   "editor.smoothScrolling": true,
   // カーソル下のハイライトを無効化
-  "editor.occurrencesHighlight": "off",
+  "editor.occurrencesHighlight": "multiFile",
   // カッコのハイライトを無効
   "editor.matchBrackets": "near",
   // BracketPairColorizeを有効にする
