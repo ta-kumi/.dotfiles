@@ -1,11 +1,11 @@
 13xforever.language-x86-64-assembly
 8amjp.charactercount
 alefragnani.bookmarks
-chicoff.mapfile
 christian-kohler.path-intellisense
 codezombiech.gitignore
 cweijan.dbclient-jdbc
 cweijan.vscode-mysql-client2
+docker.docker
 donjayamanne.githistory
 dunstontc.viml
 eamodio.gitlens
@@ -51,7 +51,6 @@ ms-vscode.makefile-tools
 ms-vscode.remote-explorer
 ms-vscode.remote-server
 naco-siren.gradle-language
-platformio.platformio-ide
 plorefice.devicetree
 pranaygp.vscode-css-peek
 redhat.java
@@ -65,6 +64,7 @@ sgryjp.japanese-word-handler
 shardulm94.trailing-spaces
 sianglim.slim
 tamasfe.even-better-toml
+tauri-apps.tauri-vscode
 twxs.cmake
 vadimcn.vscode-lldb
 visualstudioexptteam.intellicode-api-usage-examples
@@ -81,4 +81,5 @@ vscjava.vscode-spring-boot-dashboard
 vscjava.vscode-spring-initializr
 vscode-icons-team.vscode-icons
 vscodevim.vim
+yocto-project.yocto-bitbake
 zixuanwang.linkerscript

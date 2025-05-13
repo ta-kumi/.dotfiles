@@ -285,12 +285,17 @@
     "sml": "cd $dir && sml $fileName"
   },
 
+  // --- GitHub Copilot
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "scminput": true,
+    "markdown": true
+  },
+  "github.copilot.nextEditSuggestions.enabled": true,
+
   // --- Visual Studio IntelliCode
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-
-  // -- GitHub Copilot
-  "chat.detectParticipant.enabled": true,
-  "github.copilot.editor.enableAutoCompletions": false,
 
   // --- git
   "git.openRepositoryInParentFolders": "always",
