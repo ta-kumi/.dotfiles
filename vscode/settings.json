@@ -77,6 +77,10 @@
   "window.zoomLevel": 0.7, // ズームレベル
   // アイコン設定（拡張機能）
   "workbench.iconTheme": "vscode-icons",
+  // アクティビティーバーの位置を上部にする
+  "workbench.activityBar.location": "top",
+  // コードの折りたたみを無効化
+  "editor.folding": false,
   // ミニマップを表示しない
   "editor.minimap.enabled": false,
   // 空白文字を表示する
