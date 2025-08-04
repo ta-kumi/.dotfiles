@@ -1,5 +1,5 @@
 # 環境変数
-## 言語設定
+## 言語設定(apt install language-pack-ja)
 export LANG=ja_JP.UTF-8
 ## XDG configuration
 export XDG_CONFIG_HOME=$HOME/.config
@@ -159,8 +159,22 @@ alias cc='cargo check'
 alias ct='RUST_BACKTRACE=1 cargo test -- --nocapture'
 alias cs='cargo search'
 alias ca='cargo add'
+alias crm='cargo remove'
 alias ci='cargo install'
 alias cu='cargo uninstall'
+## python
+alias u='uv'
+alias ut='uvx'
+alias ui='uv init'
+alias ur='uv run'
+alias ua='uv add'
+alias ul='uv pip list'
+alias urm='uv remove'
+alias upl='uv python list'
+alias upf='uv python find'
+alias upi='uv python install'
+alias upu='uv python uninstall'
+alias upp='uv python pin'
 ## alias expand
 function expand-alias() {
 	zle _expand_alias
