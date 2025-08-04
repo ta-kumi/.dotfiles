@@ -231,6 +231,10 @@ if type rustup &> /dev/null; then
 	source <(rustup completions zsh)
 	# source <(rustup completions zsh cargo)
 fi
+## uv
+if type uv &> /dev/null; then
+	source <(uv generate-shell-completion zsh)
+fi
 
 # 移動系
 ## ディレクトリ名だけで移動
