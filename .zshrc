@@ -292,11 +292,6 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 # プログラミング関係
-## anyenv
-if [[ -d $HOME/.anyenv ]]; then
-	export PATH="$HOME/.anyenv/bin:$PATH"
-	eval "$(anyenv init -)"
-fi
 ## go
 if type go &> /dev/null; then
 	path=($HOME/go/bin $path)
