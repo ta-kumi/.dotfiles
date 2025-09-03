@@ -144,11 +144,11 @@ alias kc='kubectl create'
 alias ka='kubectl apply'
 alias ks='kubectl scale'
 alias kd='kubectl delete'
-## picocom
-alias pico='sudo picocom /dev/ttyUSB0 -b 115200'
 ## commands
 alias to='touch'
 alias wi='which'
+alias pico='sudo picocom /dev/ttyUSB0 -b 115200'
+alias dd='sudo dd if=* of=* bs=64M status=progress'
 ## rust
 alias c='cargo'
 alias cn='cargo new'
