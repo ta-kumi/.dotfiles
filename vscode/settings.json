@@ -4,6 +4,8 @@
   // =====================================================
   // WelcomPage非表示
   "workbench.startupEditor": "none",
+  // 更新通知非表示
+  "update.showReleaseNotes": false,
   // 空ファイルのヒント非表示
   "workbench.editor.empty.hint": "hidden",
   // 新規ワークスペースを別ウインドウで開く
@@ -34,6 +36,8 @@
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   // ターミナルのタブを表示しない
   "terminal.integrated.tabs.enabled": false,
+  // ターミナル補完を無効化
+  "terminal.integrated.suggest.enabled": false,
   // 定義参照時に必ずpeekを開く
   "editor.definitionLinkOpensInPeek": true,
   // references infoを非表示
@@ -70,6 +74,12 @@
   // inlay hitsを無効化
   "editor.inlayHints.enabled": "off",
   // フォント設定
+  // // mac
+  // "editor.fontSize": 15, // フォントサイズ
+  // "editor.lineHeight": 16, // 行間幅
+  // "editor.letterSpacing": -0.63, // 文字の横幅
+  // "window.zoomLevel": 0.7, // ズームレベル
+  // windows
   "editor.fontFamily": "Consolas, 'Courier New', monosipace", // フォント設定
   "editor.fontSize": 17, // フォントサイズ
   "editor.lineHeight": 16, // 行間幅
@@ -242,7 +252,7 @@
     "cpp": "cd $dir && g++ -std=c++20 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
     "php": "php",
-    "python": "python -u",
+    "python": "uv run",
     "perl": "perl",
     "perl6": "perl6",
     "ruby": "ruby",
@@ -303,9 +313,13 @@
 
   // --- git
   "git.openRepositoryInParentFolders": "always",
+  "gitlens.rebaseEditor.openOnPausedRebase": false,
 
   // --- MY SQL
   "database-client.autoSync": true,
+
+  // --- mawkdown preview github styles
+  "markdown-preview-github-styles.colorTheme": "light",
 
   // --- vim
   // - option -
@@ -357,19 +371,21 @@
     {"before":["<Leader>","N"], "commands":[":tabm +1"]},
     {"before":["<Leader>","P"], "commands":[":tabm -1"]},
     {"before":["<Leader>","enter"], "commands":["workbench.action.keepEditor"]},
-    {"before":["<Leader>","q"], "commands":[":q"]},
-    {"before":["<Leader>","K"], "commands":[":qa"]},
+    {"before":["<Leader>","q"], "commands":["workbench.action.closeActiveEditor"]},
+    {"before":["<Leader>","Q"], "commands":["workbench.action.closeEditorsInGroup"]},
+    {"before":["<Leader>","K"], "commands":["workbench.action.closeAllEditors"]},
     // 検索系
     {"before":["<Esc>"], "commands": [":nohl"]},
-    // 定義元、参照先
-    {"before":["<C-h>"], "commands":["editor.action.peekDefinition"]},
-    {"before":["<C-k>"], "commands":["workbench.action.moveEditorToFirstGroup","editor.action.revealDefinitionAside"]},
-    {"before":["<C-l>"], "commands":["workbench.action.moveEditorToFirstGroup","workbench.action.splitEditorRight","workbench.action.moveEditorToNextGroup","editor.action.goToReferences"]},
-    {"before":["<C-o>"], "commands":["workbench.action.navigateBack"]},
-    {"before":["<C-i>"], "commands":["workbench.action.navigateForward"]},
-    {"before":["<C-w>"], "commands":["workbench.action.closeActiveEditor","workbench.action.focusFirstEditorGroup","workbench.action.moveEditorToRightGroup"]},
     // easy-searchキーバインド
     {"before":["s"], "after":["<Leader>","<Leader>","2","s"]},
+    // 進む、戻る系
+    {"before":["<C-i>"], "command":["workbench.action.navigateForward"]},
+    {"before":["<C-o>"], "command":["workbench.action.navigateBack"]},
+    // // 定義元、参照先
+    // {"before":["<C-h>"], "commands":["editor.action.peekDefinition"]},
+    // {"before":["<C-k>"], "commands":["workbench.action.moveEditorToFirstGroup","editor.action.revealDefinitionAside"]},
+    // {"before":["<C-l>"], "commands":["workbench.action.moveEditorToFirstGroup","workbench.action.splitEditorRight","workbench.action.moveEditorToNextGroup","editor.action.goToReferences"]},
+    // {"before":["<C-w>"], "commands":["workbench.action.closeActiveEditor","workbench.action.focusFirstEditorGroup","workbench.action.moveEditorToRightGroup"]},
   ],
   // VisualMode
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -398,19 +414,21 @@
     {"before":["<Leader>","N"], "commands":[":tabm +1"]},
     {"before":["<Leader>","P"], "commands":[":tabm -1"]},
     {"before":["<Leader>","enter"], "commands":["workbench.action.keepEditor"]},
-    {"before":["<Leader>","q"], "commands":[":q"]},
-    {"before":["<Leader>","K"], "commands":[":qa"]},
+    {"before":["<Leader>","q"], "commands":["workbench.action.closeActiveEditor"]},
+    {"before":["<Leader>","Q"], "commands":["workbench.action.closeEditorsInGroup"]},
+    {"before":["<Leader>","K"], "commands":["workbench.action.closeAllEditors"]},
     // 検索系
     {"before":["<Esc>"], "commands": [":nohl"]},
-    // 定義元、参照先
-    {"before":["<C-h>"], "commands":["editor.action.peekDefinition"]},
-    {"before":["<C-k>"], "commands":["workbench.action.moveEditorToFirstGroup","editor.action.revealDefinitionAside"]},
-    {"before":["<C-l>"], "commands":["workbench.action.moveEditorToFirstGroup","workbench.action.splitEditorRight","workbench.action.moveEditorToNextGroup","editor.action.goToReferences"]},
-    {"before":["<C-o>"], "commands":["workbench.action.navigateBack"]},
-    {"before":["<C-i>"], "commands":["workbench.action.navigateForward"]},
-    {"before":["<C-w>"], "commands":["workbench.action.closeActiveEditor","workbench.action.focusFirstEditorGroup","workbench.action.moveEditorToRightGroup"]},
     // easy-searchキーバインド
     {"before":["s"], "after":["<Leader>","<Leader>","2","s"]},
+    // 進む、戻る系
+    {"before":["<C-i>"], "command":["workbench.action.navigateForward"]},
+    {"before":["<C-o>"], "command":["workbench.action.navigateBack"]},
+    // // 定義元、参照先
+    // {"before":["<C-h>"], "commands":["editor.action.peekDefinition"]},
+    // {"before":["<C-k>"], "commands":["workbench.action.moveEditorToFirstGroup","editor.action.revealDefinitionAside"]},
+    // {"before":["<C-l>"], "commands":["workbench.action.moveEditorToFirstGroup","workbench.action.splitEditorRight","workbench.action.moveEditorToNextGroup","editor.action.goToReferences"]},
+    // {"before":["<C-w>"], "commands":["workbench.action.closeActiveEditor","workbench.action.focusFirstEditorGroup","workbench.action.moveEditorToRightGroup"]},
   ],
 
   /* ----------- ここまで --------------*/

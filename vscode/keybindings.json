@@ -20,27 +20,49 @@
   { "key": "ctrl+shift+b", "command": "workbench.action.toggleSidebarVisibility" },
   { "key": "ctrl+shift+e", "command": "workbench.view.explorer" },
   { "key": "ctrl+shift+f", "command": "workbench.action.findInFiles" },
+  { "key": "ctrl+shift+d", "command": "workbench.view.debug" },
+  { "key": "ctrl+shift+x", "command": "workbench.view.extensions" },
+  { "key": "ctrl+shift+r", "command": "workbench.view.remote" },
   { "key": "ctrl+shift+m", "command": "bookmarksExplorer.focus" },
   // コマンドパレットでの移動
   { "key": "ctrl+n", "command" :"workbench.action.quickOpenSelectNext", "when" :"inQuickOpen" },
   { "key": "ctrl+p", "command" :"workbench.action.quickOpenSelectPrevious", "when" :"inQuickOpen" },
-  // peekwindowでの移動
-  { "key": "shift+alt+f12", "command": "editor.action.referenceSearch.trigger" },
-  { "key": "ctrl+i", "command": "togglePeekWidgetFocus", "when": "referenceSearchVisible" },
+  // 定義ホバー系
+  { "key": "ctrl+h", "command": "editor.action.showHover", "args": {"focus": "autoFocusImmediately"}, "when": "editorTextFocus && !inReferenceSearchEditor && !referenceSearchVisible" },
+  { "key": "ctrl+h", "command": "editor.action.hideHover", "when": "editorHoverVisible && !inReferenceSearchEditor && !referenceSearchVisible" },
+  { "key": "ctrl+w", "command": "editor.action.hideHover", "when": "editorHoverVisible && !inReferenceSearchEditor && !referenceSearchVisible" },
+  { "key": "j", "command": "editor.action.scrollDownHover", "when": "editorHoverFocused" },
+  { "key": "k", "command": "editor.action.scrollUpHover", "when": "editorHoverFocused" },
+  { "key": "h", "command": "editor.action.scrollLeftHover", "when": "editorHoverFocused" },
+  { "key": "l", "command": "editor.action.scrollRightHover", "when": "editorHoverFocused" },
+  { "key": "ctrl+d", "command": "runCommands", "args": { "commands": ["editor.action.scrollDownHover","editor.action.scrollDownHover","editor.action.scrollDownHover", "editor.action.scrollDownHover","editor.action.scrollDownHover"]}, "when": "editorHoverFocused" },
+  { "key": "ctrl+u", "command": "runCommands", "args": { "commands": ["editor.action.scrollUpHover","editor.action.scrollUpHover","editor.action.scrollUpHover", "editor.action.scrollUpHover","editor.action.scrollUpHover"]}, "when": "editorHoverFocused" },
+  // 定義参照系
+  { "key": "ctrl+k", "command": "editor.action.peekDefinition", "when": "editorTextFocus && !inReferenceSearchEditor && !referenceSearchVisible"},
+  { "key": "ctrl+l", "command": "editor.action.referenceSearch.trigger",  "when": "editorTextFocus && !inReferenceSearchEditor && !referenceSearchVisible"},
+  { "key": "ctrl+i", "command": "togglePeekWidgetFocus", "when": "referenceSearchVisible && !inReferenceSearchEditor" },
   { "key": "ctrl+o", "command": "togglePeekWidgetFocus", "when": "inReferenceSearchEditor" },
-  { "key": "ctrl+n", "command": "goToNextReference", "when": "inReferenceSearchEditor || referenceSearchVisible" },
-  { "key": "ctrl+p", "command": "goToPreviousReference", "when": "inReferenceSearchEditor || referenceSearchVisible" },
-  { "key": "ctrl+enter", "command": "closeReferenceSearch", "when": "inReferenceSearchEditor || referenceSearchVisible" },
+  { "key": "ctrl+n", "command": "list.expand", "when": "(inReferenceSearchEditor || referenceSearchVisible) && treeElementCanExpand" },
+  { "key": "ctrl+n", "command": "list.focusDown", "when": "(inReferenceSearchEditor || referenceSearchVisible) && !treeElementCanExpand" },
+  { "key": "ctrl+p", "command": "list.focusUp", "when": "inReferenceSearchEditor || referenceSearchVisible" },
+  { "key": "ctrl+enter", "command": "runCommands", "args": { "commands": ["revealReference", "closeReferenceSearch"] }, "when": "inReferenceSearchEditor || referenceSearchVisible" },
+  { "key": "ctrl+w", "command": "closeReferenceSearch", "when": "inReferenceSearchEditor || referenceSearchVisible" },
   // 設定群
   { "key": "ctrl+,", "command": "workbench.action.openSettings" },
   { "key": "ctrl+shift+,", "command": "workbench.action.openSettingsJson" },
   { "key": "ctrl+.", "command": "workbench.action.openGlobalKeybindings" },
   { "key": "ctrl+shift+.", "command": "workbench.action.openGlobalKeybindingsFile" },
+  // // peekwindowでの移動
+  // { "key": "ctrl+i", "command": "togglePeekWidgetFocus", "when": "referenceSearchVisible" },
+  // { "key": "ctrl+o", "command": "togglePeekWidgetFocus", "when": "inReferenceSearchEditor" },
+  // { "key": "ctrl+n", "command": "goToNextReference", "when": "inReferenceSearchEditor || referenceSearchVisible" },
+  // { "key": "ctrl+p", "command": "goToPreviousReference", "when": "inReferenceSearchEditor || referenceSearchVisible" },
+  // { "key": "ctrl+enter", "command": "closeReferenceSearch", "when": "inReferenceSearchEditor || referenceSearchVisible" },
 
   // ==================== エディタ設定 ====================
   // 改行設定
-  { "key": "ctrl+enter", "command": "-editor.action.insertLineAfter", "when": "editorTextFocus && !editorReadonly" },
-  { "key": "ctrl+shift+enter", "command": "-editor.action.insertLineBefore", "when": "editorTextFocus && !editorReadonly" },
+  { "key": "cmd+enter", "command": "-editor.action.insertLineAfter", "when": "editorTextFocus && !editorReadonly" },
+  { "key": "shift+cmd+enter", "command": "-editor.action.insertLineBefore", "when": "editorTextFocus && !editorReadonly" },
 
   // ==================== ターミナル設定 ====================
   // キーかぶり削除
@@ -73,15 +95,8 @@
   { "key": "ctrl+alt+m", "command": "-code-runner.stop" },
   // bookmarks
   { "key": "ctrl+m", "command": "bookmarks.toggle", "when": "editorTextFocus" },
-  // copilot
-  { "key": "ctrl+/", "command": "inlineChat.start", "when": "editorFocus && inlineChatHasProvider && !editorReadonly" },
-  { "key": "ctrl+/", "command": "inlineChat.close", "when": "inlineChatHasProvider && inlineChatVisible" },
-  { "key": "ctrl+enter", "command": "inlineChat.acceptChanges", "when": "inlineChatHasProvider && inlineChatVisible && !inlineChatDocumentChanged || inlineChatHasProvider && inlineChatVisible && config.inlineChat.mode != 'preview'" },
-  { "key": "ctrl+shift+/", "command": "workbench.panel.chat", "when": "workbench.panel.chat.view.copilot.active" },
-  { "key": "ctrl+/", "command": "workbench.action.terminal.chat.start", "when": "terminalChatAgentRegistered && terminalFocusInAny && terminalHasBeenCreated || terminalChatAgentRegistered && terminalFocusInAny && terminalProcessSupported" },
-  { "key": "ctrl+/", "command": "workbench.action.terminal.chat.close", "when": "terminalChatFocus && terminalChatVisible" },
-  { "key": "ctrl+enter", "command": "workbench.action.terminal.chat.runCommand", "when": "terminalChatResponseContainsCodeBlock && terminalHasBeenCreated && !terminalChatActiveRequest && !terminalChatResponseContainsMultipleCodeBlocks || terminalChatResponseContainsCodeBlock && terminalProcessSupported && !terminalChatActiveRequest && !terminalChatResponseContainsMultipleCodeBlocks" },
-
+  // ai-assistant right bar
+  { "key": "ctrl+/", "command": "workbench.action.focusAuxiliaryBar", "when": "editorTextFocus || terminalFocus || panelFocus" },
+  { "key": "ctrl+/", "command": "workbench.action.closeAuxiliaryBar", "when": "!editorTextFocus && !terminalFocus && !panelFocus" },
   // 追加分
-
 ]
