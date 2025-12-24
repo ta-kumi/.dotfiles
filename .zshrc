@@ -215,37 +215,42 @@ precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 # 補完機能系
-## 補完有効化
-autoload -Uz bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-## 補完で大文字にもマッチ
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-## 補完候補一覧表示
-setopt auto_list
-## tabで補完候補切り替え
-setopt auto_menu
-## tab,矢印キーで補完選択
-zstyle ':completion:*:default' menu select=1
-## brew
+## FPATH系
+### brew
 if type brew &> /dev/null; then
 	FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-	autoload -Uz compinit && compinit
 fi
-## kubectl
+### rust(cargo)
+if type rustc &> /dev/null; then
+	FPATH="$(rustc --print sysroot)/share/zsh/site-functions:${FPATH}"
+fi
+## bash互換レイヤーを有効化
+autoload -Uz bashcompinit && bashcompinit
+## 補完の挙動設定系
+### 補完で大文字にもマッチ
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+### 補完候補一覧表示
+setopt auto_list
+### tabで補完候補切り替え
+setopt auto_menu
+### tab,矢印キーで補完選択
+zstyle ':completion:*:default' menu select=1
+## 補完有効化
+autoload -Uz compinit && compinit
+## completion設定読み込みk系
+### kubectl
 if type kubectl &> /dev/null; then
 	source <(kubectl completion zsh)
 fi
-## azure cli
-## curl -sLO 'https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion'
+### azure cli
 if [[ -f "$HOME/.config/zsh/az.completion" ]]; then
-  source $HOME/.config/zsh/az.completion
+	source $HOME/.config/zsh/az.completion
 fi
-## rust
+### rust(rustup)
 if type rustup &> /dev/null; then
 	source <(rustup completions zsh)
-	# source <(rustup completions zsh cargo)
 fi
-## uv
+### uv
 if type uv &> /dev/null; then
 	source <(uv generate-shell-completion zsh)
 fi
