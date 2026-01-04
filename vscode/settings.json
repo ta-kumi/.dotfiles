@@ -372,8 +372,7 @@
     {"before":["<Leader>","P"], "commands":[":tabm -1"]},
     {"before":["<Leader>","enter"], "commands":["workbench.action.keepEditor"]},
     {"before":["<Leader>","q"], "commands":["workbench.action.closeActiveEditor"]},
-    {"before":["<Leader>","Q"], "commands":["workbench.action.closeEditorsInGroup"]},
-    {"before":["<Leader>","K"], "commands":["workbench.action.closeAllEditors"]},
+    {"before":["<Leader>","Q"], "commands":["workbench.action.closeAllEditors"]},
     // 検索系
     {"before":["<Esc>"], "commands": [":nohl"]},
     // easy-searchキーバインド
@@ -415,8 +414,7 @@
     {"before":["<Leader>","P"], "commands":[":tabm -1"]},
     {"before":["<Leader>","enter"], "commands":["workbench.action.keepEditor"]},
     {"before":["<Leader>","q"], "commands":["workbench.action.closeActiveEditor"]},
-    {"before":["<Leader>","Q"], "commands":["workbench.action.closeEditorsInGroup"]},
-    {"before":["<Leader>","K"], "commands":["workbench.action.closeAllEditors"]},
+    {"before":["<Leader>","Q"], "commands":["workbench.action.closeAllEditors"]},
     // 検索系
     {"before":["<Esc>"], "commands": [":nohl"]},
     // easy-searchキーバインド

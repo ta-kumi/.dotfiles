@@ -78,6 +78,7 @@
   { "key": "ctrl+t h", "command": "workbench.action.terminal.focusPreviousPane", "when": "terminalFocus" },
   { "key": "ctrl+t l", "command": "workbench.action.terminal.focusNextPane", "when": "terminalFocus" },
   { "key": "ctrl+t q", "command": "workbench.action.terminal.kill", "when": "terminalFocus" },
+  { "key": "ctrl+t shift+q", "command": "workbench.action.terminal.killAll", "when": "terminalFocus" },
   // タブ関連
   { "key": "ctrl+t t", "command": "workbench.action.terminal.newInActiveWorkspace", "when": "terminalFocus" },
   { "key": "ctrl+t n", "command": "workbench.action.terminal.focusNext", "when": "terminalFocus" },
