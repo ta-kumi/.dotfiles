@@ -53,6 +53,8 @@ inoremap <silent> jj <ESC>
 set backspace=indent,eol,start
 
 " 見た目系
+"" colorschemeの設定
+colorscheme torte
 "" シンタックスハイライトの有効化
 syntax enable
 "" 行番号を表示
