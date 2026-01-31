@@ -1,6 +1,7 @@
 13xforever.language-x86-64-assembly
 8amjp.charactercount
 alefragnani.bookmarks
+bierner.markdown-preview-github-styles
 christian-kohler.path-intellisense
 codezombiech.gitignore
 cweijan.dbclient-jdbc
@@ -25,6 +26,7 @@ jeff-hykin.better-cpp-syntax
 jumpinjackie.vscode-map-preview
 mads-hartmann.bash-ide-vscode
 mhutchie.git-graph
+ms-azuretools.vscode-containers
 ms-azuretools.vscode-docker
 ms-ceintl.vscode-language-pack-ja
 ms-dotnettools.csharp
@@ -34,6 +36,7 @@ ms-python.debugpy
 ms-python.isort
 ms-python.python
 ms-python.vscode-pylance
+ms-python.vscode-python-envs
 ms-toolsai.jupyter
 ms-toolsai.jupyter-keymap
 ms-toolsai.jupyter-renderers
@@ -51,6 +54,7 @@ ms-vscode.makefile-tools
 ms-vscode.remote-explorer
 ms-vscode.remote-server
 naco-siren.gradle-language
+openai.chatgpt
 plorefice.devicetree
 pranaygp.vscode-css-peek
 redhat.java
@@ -67,15 +71,15 @@ tamasfe.even-better-toml
 tauri-apps.tauri-vscode
 twxs.cmake
 vadimcn.vscode-lldb
-visualstudioexptteam.intellicode-api-usage-examples
-visualstudioexptteam.vscodeintellicode
 vmware.vscode-boot-dev-pack
 vmware.vscode-spring-boot
+vscjava.migrate-java-to-azure
 vscjava.vscode-gradle
 vscjava.vscode-java-debug
 vscjava.vscode-java-dependency
 vscjava.vscode-java-pack
 vscjava.vscode-java-test
+vscjava.vscode-java-upgrade
 vscjava.vscode-maven
 vscjava.vscode-spring-boot-dashboard
 vscjava.vscode-spring-initializr

@@ -57,8 +57,6 @@
   // セキュリティ系オプションの無効化
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.emptyWindow": false,
-  // ファイルの自動保存を有効化
-  "files.autoSave": "afterDelay",
 
   // =====================================================
   // 表示設定
