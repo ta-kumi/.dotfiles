@@ -26,7 +26,6 @@ done
 if [[ ! -e ${HOME}/.config ]]; then
 	mkdir ${HOME}/.config
 fi
-ln -snfv ${DOTPATH}/.config/nvim ${HOME}/.config/nvim
 
 # tmux plugin
 if [[ ! -d ${HOME}/.tmux/plugins/tpm ]]; then

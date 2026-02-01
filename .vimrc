@@ -41,9 +41,8 @@ if has('vim_starting')
 	let &t_SR .= "\e[4 q"
 endif
 
-
 " キー設定
-""" スペースキーを使用しない
+"" スペースキーを使用しない
 noremap <Space> <Nop>
 "" <Leader>キーの割当
 let mapleader = "\<Space>"
@@ -53,8 +52,6 @@ inoremap <silent> jj <ESC>
 set backspace=indent,eol,start
 
 " 見た目系
-"" colorschemeの設定
-colorscheme torte
 "" シンタックスハイライトの有効化
 syntax enable
 "" 行番号を表示
@@ -103,7 +100,6 @@ augroup fileTypeIndent
 	autocmd BufNewFile,BufRead *.py setlocal expandtab tabstop=4 softtabstop=4 shiftwidth=4
 augroup END
 
-
 " 検索系
 "" インクリメンタルサーチ. １文字入力毎に検索を行う
 set incsearch
@@ -129,3 +125,30 @@ if &term =~ "xterm"
 
 	inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
+
+" plugin
+"" auto install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+"" plugin list
+call plug#begin('~/.vim/plugged')
+Plug 'tomasr/molokai'
+Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
+call plug#end()
+"" plugin settings
+""" molokai
+if !empty(globpath(&runtimepath, 'colors/molokai.vim'))
+	colorscheme molokai
+endif
+""" vim-easymotion
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_keys = ';hklyuiopnm,qwertasdgzxcvbjf'
+nmap s <Plug>(easymotion-s2)
+xmap s <Plug>(easymotion-s2)
+omap s <Plug>(easymotion-s2)
