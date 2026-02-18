@@ -38,6 +38,11 @@
   "terminal.integrated.tabs.enabled": false,
   // ターミナル補完を無効化
   "terminal.integrated.suggest.enabled": false,
+  // ターミナルフォーカス時にVS Code側で処理するキーコマンド
+  "terminal.integrated.commandsToSkipShell": [
+    "workbench.action.focusAuxiliaryBar",
+    "workbench.action.closeAuxiliaryBar"
+  ],
   // 定義参照時に必ずpeekを開く
   "editor.definitionLinkOpensInPeek": true,
   // references infoを非表示
