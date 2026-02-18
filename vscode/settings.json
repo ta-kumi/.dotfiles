@@ -2,6 +2,8 @@
   // =====================================================
   // 基本設定
   // =====================================================
+  // // 設定共有
+  // "editor.guides.indentation": true,
   // WelcomPage非表示
   "workbench.startupEditor": "none",
   // 更新通知非表示
@@ -36,8 +38,8 @@
   "terminal.integrated.enableMultiLinePasteWarning": "never",
   // ターミナルのタブを表示しない
   "terminal.integrated.tabs.enabled": false,
-  // ターミナル補完を無効化
-  "terminal.integrated.suggest.enabled": false,
+  // ターミナルのシェル統合を無効化（補完やエラーヒントなどの機能を無効化）
+  "terminal.integrated.shellIntegration.enabled": false,
   // ターミナルフォーカス時にVS Code側で処理するキーコマンド
   "terminal.integrated.commandsToSkipShell": [
     "workbench.action.focusAuxiliaryBar",
@@ -83,7 +85,7 @@
   // "editor.letterSpacing": -0.63, // 文字の横幅
   // "window.zoomLevel": 0.7, // ズームレベル
   // windows
-  "editor.fontFamily": "Consolas, 'Courier New', monosipace", // フォント設定
+  "editor.fontFamily": "Consolas, 'Courier New', monospace", // フォント設定
   "editor.fontSize": 17, // フォントサイズ
   "editor.lineHeight": 16, // 行間幅
   "editor.letterSpacing": -1.0, // 文字の横幅
@@ -244,6 +246,7 @@
   // --- Python
   "python.analysis.completeFunctionParens": true,
   "python.analysis.autoImportCompletions": true,
+  "python.terminal.activateEnvironment": false,
 
   // --- Code Runner
   "code-runner.runInTerminal": true,
@@ -310,9 +313,6 @@
     "markdown": true
   },
   "github.copilot.nextEditSuggestions.enabled": true,
-
-  // --- Visual Studio IntelliCode
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
   // --- git
   "git.openRepositoryInParentFolders": "always",
