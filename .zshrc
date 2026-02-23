@@ -36,7 +36,8 @@ bindkey "5D" backward-word
 setopt ignoreeof
 
 # エイリアス設定
-## sudo
+## sudoを指定しても
+## 後のコマンドがalias展開するようにする
 alias sudo='sudo '
 ## ls
 alias ls='ls -F --color'
@@ -60,6 +61,15 @@ alias -g L='| less'
 alias -g H='| head -n'
 alias -g T='| tail -n'
 alias -g G='| grep --color -i'
+## vscode
+alias e='code'
+alias el='code --list-extensions'
+alias ea='code --install-extension'
+alias er='code --uninstall-extension'
+alias ei='code-insiders'
+alias eil='code-insiders --list-extensions'
+alias eia='code-insiders --install-extension'
+alias eir='code-insiders --uninstall-extension'
 ## tmux
 alias t='tmux'
 alias tl='tmux ls'
@@ -73,6 +83,9 @@ alias gi='git init'
 alias gs='git status'
 alias ga='git add'
 alias gu='git restore --staged'
+alias gp='git format-patch'
+alias gpa='git apply'
+alias gpc='git am'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias grs='git reset'
@@ -123,6 +136,7 @@ alias dnpr='docker network prune'
 alias dsta='docker start'
 alias dsto='docker stop'
 alias dl='docker logs'
+alias dtest='docker run --rm -it busybox /bin/sh'
 alias dr='docker run --rm -it *image* /bin/bash'
 alias de='docker exec -it *container* /bin/bash'
 alias db='docker build -t *imagename* .'
@@ -155,32 +169,60 @@ alias dd='sudo dd if=* of=* bs=64M status=progress'
 ## rust
 alias c='cargo'
 alias cn='cargo new'
-alias cr='RUST_BACKTRACE=1 cargo run'
+alias cx='RUST_BACKTRACE=1 cargo run'
 alias cf='cargo fmt'
 alias cb='cargo build'
 alias cc='cargo check'
 alias ct='RUST_BACKTRACE=1 cargo test -- --nocapture'
-alias cs='cargo search'
+alias cl='cargo tree --depth 1'
+alias clg='cargo install --list'
 alias ca='cargo add'
-alias crm='cargo remove'
-alias ci='cargo install'
-alias cu='cargo uninstall'
+alias cag='cargo install'
+alias cr='cargo remove'
+alias crg='cargo uninstall'
+alias cu='cargo update'
+alias cug='cargo install-update -a'
 ## python
 alias u='uv'
-alias ut='uvx'
-alias ui='uv init'
-alias us='uv sync'
+alias un='uv init'
+alias ux='uv run'
+alias ul='uv pip list'
+alias ua='uv add'
+alias ur='uv remove'
 alias uu='uv sync --upgrade'
 alias uup='uv sync --upgrade-package='
-alias ur='uv run'
-alias ua='uv add'
-alias ul='uv pip list'
-alias urm='uv remove'
-alias upl='uv python list'
-alias upf='uv python find'
-alias upi='uv python install'
-alias upu='uv python uninstall'
+alias up='uv python'
+alias upv='uv run python --version'
+alias upl='uv python list --only-installed'
+alias uplr='uv python list'
+alias upa='uv python install'
+alias upr='uv python uninstall'
 alias upp='uv python pin'
+alias uppg='uv python pin --global'
+## node
+alias n='npm'
+alias nn='npm init'
+alias nx='npm run'
+alias nb='npm run build'
+alias nc='npm run lint'
+alias nt='npm run test'
+alias nl='npm list'
+alias nlg='npm list -g --depth=0'
+alias na='npm install'
+alias nag='npm install -g'
+alias nr='npm uninstall'
+alias nrg='npm uninstall -g'
+alias nu='npm update'
+alias nug='npm update -g'
+alias nv='nvm'
+alias nvl='nvm ls'
+alias nvlr='nvm ls-remote'
+alias nvv='nvm current'
+alias nva='nvm install'
+alias nvr='nvm uninstall'
+alias nvp='nvm use'
+alias nvpf='nvm current > .nvmrc'
+alias nvpg='nvm alias default'
 ## alias expand
 function expand-alias() {
 	zle _expand_alias
@@ -219,7 +261,10 @@ zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
 zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 ### 上記の表示形式
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
+precmd () {
+	vcs_info
+	enter_directory
+}
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 # 補完機能系
@@ -261,6 +306,12 @@ fi
 ### uv
 if type uv &> /dev/null; then
 	source <(uv generate-shell-completion zsh)
+fi
+### nvm
+if [[ -e "$HOME/.config/nvm" ]]; then
+	export NVM_DIR="$HOME/.config/nvm"
+	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 fi
 
 # 移動系
@@ -309,6 +360,15 @@ bindkey "^N" history-beginning-search-forward-end
 if type go &> /dev/null; then
 	path=($HOME/go/bin $path)
 fi
+## nvm
+enter_directory() {
+	if [[ $PWD == $PREV_PWD ]]; then
+		return
+	fi
+	PREV_PWD=$PWD
+	[[ -f ".nvmrc" ]] && current_node_ver=`cat .nvmrc` && nvm use $current_node_ver
+}
+unset PROMPT_COMMAND
 
 # その他
 ## デフォルトシェルの設定
