@@ -49,8 +49,9 @@
   "editor.definitionLinkOpensInPeek": true,
   // references infoを非表示
   "editor.codeLens": false,
-  // 検索時にgitignore以下のファイルを除去しない
-  "search.useIgnoreFiles": false,
+  // ファイル一覧や検索時にgitignoreで指定したファイルを除去する
+  "search.useIgnoreFiles": true,
+  "explorer.excludeGitIgnore": true,
   // 検索時に、以前の履歴を優先しない
   "editor.suggestSelection": "first",
   // 削除時に確認しない
