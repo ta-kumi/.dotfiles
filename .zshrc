@@ -79,7 +79,7 @@ alias tk='tmux kill-session -t'
 alias tka='tmux kill-server'
 ## git
 alias g='git'
-alias gi='git init'
+alias gn='git init'
 alias gs='git status'
 alias ga='git add'
 alias gu='git restore --staged'
@@ -223,6 +223,16 @@ alias nvr='nvm uninstall'
 alias nvp='nvm use'
 alias nvpf='nvm current > .nvmrc'
 alias nvpg='nvm alias default'
+## bitbake
+alias b='bitbake'
+alias bs='bash -c "source *recipe* build && exec zsh"'
+alias bll='bitbake-layers show-layers'
+alias bcl='bitbake-layers create-layer'
+alias bal='bitbake-layers add-layer'
+alias blr='bitbake-layers show-recipes'
+alias be='bitbake -e'
+alias bb='bitbake -k'
+alias bc='bitbake -c clean'
 ## alias expand
 function expand-alias() {
 	zle _expand_alias
@@ -276,6 +286,10 @@ fi
 ### rust(cargo)
 if type rustc &> /dev/null; then
 	FPATH="$(rustc --print sysroot)/share/zsh/site-functions:${FPATH}"
+fi
+### bitbake
+if [[ -f "$HOME/.config/zsh/_bitbake" ]]; then
+	FPATH="${HOME}/.config/zsh:${FPATH}"
 fi
 ## bash互換レイヤーを有効化
 autoload -Uz bashcompinit && bashcompinit
