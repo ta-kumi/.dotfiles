@@ -36,3 +36,9 @@ fi
 if [[ ! -e ${HOME}/.config/zsh/az.completion ]]; then
 	wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ${HOME}/.config/zsh/az.completion
 fi
+
+# bitbake completion
+if [[ ! -e ${HOME}/.config/zsh/_bitbake ]]; then
+	wget https://raw.githubusercontent.com/antznin/zsh-bitbake/master/_bitbake \
+	-O ${HOME}/.config/zsh/_bitbake
+fi
