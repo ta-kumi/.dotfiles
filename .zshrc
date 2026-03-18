@@ -36,9 +36,6 @@ bindkey "5D" backward-word
 setopt ignoreeof
 
 # エイリアス設定
-## sudoを指定しても
-## 後のコマンドがalias展開するようにする
-alias sudo='sudo '
 ## ls
 alias ls='ls -F --color'
 alias la='ls -F --color -a'
@@ -119,31 +116,39 @@ alias glo='git log --graph --decorate --oneline'
 alias gloa='git log --graph --decorate --oneline --all'
 ## docker
 alias d='docker'
+alias dsl='docker system df'
+alias dspr='docker system prune'
 alias di='docker image'
 alias dil='docker image ls'
 alias dila='docker image ls -a'
-alias dirm='docker image rm'
+alias dii='docker image inspect'
+alias dir='docker image rm'
 alias dipr='docker image prune'
 alias dc='docker container'
 alias dcl='docker container ls'
 alias dcla='docker container ls -a'
-alias dcrm='docker container rm'
+alias dci='docker container inspect'
+alias dcr='docker container rm'
 alias dcpr='docker container prune'
+alias dv='docker volume'
+alias dvl='docker volume ls'
+alias dvr='docker volume rm'
+alias dvpr='docker volume prune'
 alias dn='docker network'
 alias dnl='docker network ls'
 alias dni='docker network inspect'
 alias dnco='docker network connect'
 alias dndi='docker network disconnect'
-alias dncr='docker network create'
-alias dnrm='docker network rm'
+alias dnn='docker network create'
+alias dnr='docker network rm'
 alias dnpr='docker network prune'
-alias dsta='docker start'
-alias dsto='docker stop'
 alias dl='docker logs'
 alias dtest='docker run --rm -it busybox /bin/sh'
 alias dr='docker run --rm -it *image* /bin/bash'
 alias de='docker exec -it *container* /bin/bash'
 alias db='docker build -t *imagename* .'
+alias dsta='docker start'
+alias dsto='docker stop'
 alias d-='docker compose'
 alias d-b='docker compose build'
 alias d-u='docker compose up'
@@ -165,68 +170,6 @@ alias kc='kubectl create'
 alias ka='kubectl apply'
 alias ks='kubectl scale'
 alias kd='kubectl delete'
-## commands
-alias to='touch'
-alias wi='which'
-alias pico='sudo picocom /dev/ttyUSB0 -b 115200'
-alias dd='sudo dd if=* of=* bs=64M status=progress'
-## rust
-alias c='cargo'
-alias cn='cargo new'
-alias cx='RUST_BACKTRACE=1 cargo run'
-alias cf='cargo fmt'
-alias cb='cargo build'
-alias cc='cargo check'
-alias ct='RUST_BACKTRACE=1 cargo test -- --nocapture'
-alias cl='cargo tree --depth 1'
-alias clg='cargo install --list'
-alias ca='cargo add'
-alias cag='cargo install'
-alias cr='cargo remove'
-alias crg='cargo uninstall'
-alias cu='cargo update'
-alias cug='cargo install-update -a'
-## python
-alias u='uv'
-alias un='uv init'
-alias ux='uv run'
-alias ul='uv pip list'
-alias ua='uv add'
-alias ur='uv remove'
-alias uu='uv sync --upgrade'
-alias uup='uv sync --upgrade-package='
-alias up='uv python'
-alias upv='uv run python --version'
-alias upl='uv python list --only-installed'
-alias uplr='uv python list'
-alias upa='uv python install'
-alias upr='uv python uninstall'
-alias upp='uv python pin'
-alias uppg='uv python pin --global'
-## node
-alias n='npm'
-alias nn='npm init'
-alias nx='npm run'
-alias nb='npm run build'
-alias nc='npm run lint'
-alias nt='npm run test'
-alias nl='npm list'
-alias nlg='npm list -g --depth=0'
-alias na='npm install'
-alias nag='npm install -g'
-alias nr='npm uninstall'
-alias nrg='npm uninstall -g'
-alias nu='npm update'
-alias nug='npm update -g'
-alias nv='nvm'
-alias nvl='nvm ls'
-alias nvlr='nvm ls-remote'
-alias nvv='nvm current'
-alias nva='nvm install'
-alias nvr='nvm uninstall'
-alias nvp='nvm use'
-alias nvpf='nvm current > .nvmrc'
-alias nvpg='nvm alias default'
 ## bitbake
 alias b='bitbake'
 alias bs='bash -c "source *recipe* build && exec zsh"'
@@ -237,6 +180,67 @@ alias blr='bitbake-layers show-recipes'
 alias be='bitbake -e'
 alias bb='bitbake -k'
 alias bc='bitbake -c clean'
+## commands
+alias to='touch'
+alias wi='which'
+alias com='picocom /dev/ttyUSB0 -b 115200'
+alias dd='dd if=* of=* bs=64M status=progress'
+## rust
+alias r='cargo'
+alias rn='cargo new'
+alias rf='cargo fmt'
+alias rc='cargo check'
+alias rb='cargo build'
+alias rx='RUST_BACKTRACE=1 cargo run'
+alias rt='RUST_BACKTRACE=1 cargo test -- --nocapture'
+alias rpl='cargo tree --depth 1'
+alias rplg='cargo install --list'
+alias rpa='cargo add'
+alias rpr='cargo remove'
+alias rpu='cargo update'
+alias rpag='cargo install'
+alias rprg='cargo uninstall'
+alias rpug='cargo install-update -a'
+## python
+alias p='uv'
+alias pn='uv init'
+alias px='uv run'
+alias ppl='uv pip list'
+alias ppa='uv add'
+alias ppr='uv remove'
+alias ppu='uv sync --upgrade'
+alias pv='uv python'
+alias pvv='uv run python --version'
+alias pvl='uv python list --only-installed'
+alias pvlr='uv python list'
+alias pva='uv python install'
+alias pvr='uv python uninstall'
+alias pvp='uv python pin'
+alias pvpg='uv python pin --global'
+## node
+alias n='npm'
+alias nn='npm init'
+alias nc='npm run lint'
+alias nb='npm run build'
+alias nx='npm run'
+alias nt='npm run test'
+alias npl='npm list'
+alias nplg='npm list -g --depth=0'
+alias npa='npm install'
+alias npr='npm uninstall'
+alias npu='npm update'
+alias npag='npm install -g'
+alias nprg='npm uninstall -g'
+alias npug='npm update -g'
+alias nv='nvm'
+alias nvl='nvm ls'
+alias nvlr='nvm ls-remote'
+alias nvv='nvm current'
+alias nva='nvm install'
+alias nvr='nvm uninstall'
+alias nvp='nvm use'
+alias nvpf='nvm current > .nvmrc'
+alias nvpg='nvm alias default'
 ## alias expand
 function expand-alias() {
 	zle _expand_alias
@@ -281,6 +285,21 @@ precmd () {
 }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
+# プログラミング関係
+## go
+if type go &> /dev/null; then
+	path=($HOME/go/bin $path)
+fi
+## nvm
+enter_directory() {
+	if [[ $PWD == $PREV_PWD ]]; then
+		return
+	fi
+	PREV_PWD=$PWD
+	[[ -f ".nvmrc" ]] && current_node_ver=`cat .nvmrc` && nvm use $current_node_ver
+}
+unset PROMPT_COMMAND
+
 # 補完機能系
 ## FPATH系
 ### brew
@@ -309,6 +328,10 @@ zstyle ':completion:*:default' menu select=1
 ## 補完有効化
 autoload -Uz compinit && compinit
 ## completion設定読み込みk系
+### docker
+if type docker &> /dev/null; then
+	source <(docker completion zsh)
+fi
 ### kubectl
 if type kubectl &> /dev/null; then
 	source <(kubectl completion zsh)
@@ -372,21 +395,6 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-
-# プログラミング関係
-## go
-if type go &> /dev/null; then
-	path=($HOME/go/bin $path)
-fi
-## nvm
-enter_directory() {
-	if [[ $PWD == $PREV_PWD ]]; then
-		return
-	fi
-	PREV_PWD=$PWD
-	[[ -f ".nvmrc" ]] && current_node_ver=`cat .nvmrc` && nvm use $current_node_ver
-}
-unset PROMPT_COMMAND
 
 # その他
 ## デフォルトシェルの設定
