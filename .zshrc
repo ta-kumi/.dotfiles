@@ -36,9 +36,6 @@ bindkey "5D" backward-word
 setopt ignoreeof
 
 # エイリアス設定
-## sudoを指定しても
-## 後のコマンドがalias展開するようにする
-alias sudo='sudo '
 ## ls
 alias ls='ls -F --color'
 alias la='ls -F --color -a'
@@ -165,68 +162,6 @@ alias kc='kubectl create'
 alias ka='kubectl apply'
 alias ks='kubectl scale'
 alias kd='kubectl delete'
-## commands
-alias to='touch'
-alias wi='which'
-alias pico='sudo picocom /dev/ttyUSB0 -b 115200'
-alias dd='sudo dd if=* of=* bs=64M status=progress'
-## rust
-alias c='cargo'
-alias cn='cargo new'
-alias cx='RUST_BACKTRACE=1 cargo run'
-alias cf='cargo fmt'
-alias cb='cargo build'
-alias cc='cargo check'
-alias ct='RUST_BACKTRACE=1 cargo test -- --nocapture'
-alias cl='cargo tree --depth 1'
-alias clg='cargo install --list'
-alias ca='cargo add'
-alias cag='cargo install'
-alias cr='cargo remove'
-alias crg='cargo uninstall'
-alias cu='cargo update'
-alias cug='cargo install-update -a'
-## python
-alias u='uv'
-alias un='uv init'
-alias ux='uv run'
-alias ul='uv pip list'
-alias ua='uv add'
-alias ur='uv remove'
-alias uu='uv sync --upgrade'
-alias uup='uv sync --upgrade-package='
-alias up='uv python'
-alias upv='uv run python --version'
-alias upl='uv python list --only-installed'
-alias uplr='uv python list'
-alias upa='uv python install'
-alias upr='uv python uninstall'
-alias upp='uv python pin'
-alias uppg='uv python pin --global'
-## node
-alias n='npm'
-alias nn='npm init'
-alias nx='npm run'
-alias nb='npm run build'
-alias nc='npm run lint'
-alias nt='npm run test'
-alias nl='npm list'
-alias nlg='npm list -g --depth=0'
-alias na='npm install'
-alias nag='npm install -g'
-alias nr='npm uninstall'
-alias nrg='npm uninstall -g'
-alias nu='npm update'
-alias nug='npm update -g'
-alias nv='nvm'
-alias nvl='nvm ls'
-alias nvlr='nvm ls-remote'
-alias nvv='nvm current'
-alias nva='nvm install'
-alias nvr='nvm uninstall'
-alias nvp='nvm use'
-alias nvpf='nvm current > .nvmrc'
-alias nvpg='nvm alias default'
 ## bitbake
 alias b='bitbake'
 alias bs='bash -c "source *recipe* build && exec zsh"'
@@ -237,6 +172,67 @@ alias blr='bitbake-layers show-recipes'
 alias be='bitbake -e'
 alias bb='bitbake -k'
 alias bc='bitbake -c clean'
+## commands
+alias to='touch'
+alias wi='which'
+alias com='picocom /dev/ttyUSB0 -b 115200'
+alias dd='dd if=* of=* bs=64M status=progress'
+## rust
+alias c='cargo'
+alias cn='cargo new'
+alias cf='cargo fmt'
+alias cc='cargo check'
+alias cb='cargo build'
+alias cx='RUST_BACKTRACE=1 cargo run'
+alias ct='RUST_BACKTRACE=1 cargo test -- --nocapture'
+alias cpl='cargo tree --depth 1'
+alias cplg='cargo install --list'
+alias cpa='cargo add'
+alias cpr='cargo remove'
+alias cpu='cargo update'
+alias cpag='cargo install'
+alias cprg='cargo uninstall'
+alias cpug='cargo install-update -a'
+## python
+alias p='uv'
+alias pn='uv init'
+alias px='uv run'
+alias ppl='uv pip list'
+alias ppa='uv add'
+alias ppr='uv remove'
+alias ppu='uv sync --upgrade'
+alias pv='uv python'
+alias pvv='uv run python --version'
+alias pvl='uv python list --only-installed'
+alias pvlr='uv python list'
+alias pva='uv python install'
+alias pvr='uv python uninstall'
+alias pvp='uv python pin'
+alias pvpg='uv python pin --global'
+## node
+alias n='npm'
+alias nn='npm init'
+alias nc='npm run lint'
+alias nb='npm run build'
+alias nx='npm run'
+alias nt='npm run test'
+alias npl='npm list'
+alias nplg='npm list -g --depth=0'
+alias npa='npm install'
+alias npr='npm uninstall'
+alias npu='npm update'
+alias npag='npm install -g'
+alias nprg='npm uninstall -g'
+alias npug='npm update -g'
+alias nv='nvm'
+alias nvl='nvm ls'
+alias nvlr='nvm ls-remote'
+alias nvv='nvm current'
+alias nva='nvm install'
+alias nvr='nvm uninstall'
+alias nvp='nvm use'
+alias nvpf='nvm current > .nvmrc'
+alias nvpg='nvm alias default'
 ## alias expand
 function expand-alias() {
 	zle _expand_alias
@@ -280,6 +276,21 @@ precmd () {
 	enter_directory
 }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+
+# プログラミング関係
+## go
+if type go &> /dev/null; then
+	path=($HOME/go/bin $path)
+fi
+## nvm
+enter_directory() {
+	if [[ $PWD == $PREV_PWD ]]; then
+		return
+	fi
+	PREV_PWD=$PWD
+	[[ -f ".nvmrc" ]] && current_node_ver=`cat .nvmrc` && nvm use $current_node_ver
+}
+unset PROMPT_COMMAND
 
 # 補完機能系
 ## FPATH系
@@ -372,21 +383,6 @@ zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-
-# プログラミング関係
-## go
-if type go &> /dev/null; then
-	path=($HOME/go/bin $path)
-fi
-## nvm
-enter_directory() {
-	if [[ $PWD == $PREV_PWD ]]; then
-		return
-	fi
-	PREV_PWD=$PWD
-	[[ -f ".nvmrc" ]] && current_node_ver=`cat .nvmrc` && nvm use $current_node_ver
-}
-unset PROMPT_COMMAND
 
 # その他
 ## デフォルトシェルの設定
