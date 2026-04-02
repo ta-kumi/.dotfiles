@@ -2,8 +2,6 @@
   // =====================================================
   // 基本設定
   // =====================================================
-  // // 設定共有
-  // "editor.guides.indentation": true,
   // WelcomPage非表示
   "workbench.startupEditor": "none",
   // 更新通知非表示
@@ -12,34 +10,26 @@
   "workbench.editor.empty.hint": "hidden",
   // 新規ワークスペースを別ウインドウで開く
   "window.openFoldersInNewWindow": "on",
-  // ウインドウ上部に表示する文字列の設定
-  "window.title": "${activeEditorMedium}${separator}${rootName}",
-  // タブに表示する文字列の設定
-  "workbench.editor.labelFormat": "short",
-  // タブの表示設定
-  "workbench.editor.tabSizing": "shrink",
   // ファイルエンコード
   "files.encoding": "utf8",
   // ファイルを開く際、文字セットとエンコードを推測する
   "files.autoGuessEncoding": true,
-  // 行の折り返し
-  "editor.wordWrap": "on",
+  // 自動保存設定を有効化
+  "files.autoSave": "afterDelay",
   // 最終行を改行で終わる
   "files.insertFinalNewline": true,
   // 保存時に最終行の空行をトリミング
   "files.trimFinalNewlines": true,
   // 選択文字列にクウォート系を記述する際、クウォートで囲まない（選択文字列を上書き）。
   "editor.autoSurround": "never",
-  // スペニットを最後に表示する
-  "editor.snippetSuggestions": "bottom",
   // ターミナル上では選択したら自動でコピー
   "terminal.integrated.copyOnSelection": true,
   // ターミナル上での複数行コピペを警告しない
   "terminal.integrated.enableMultiLinePasteWarning": "never",
-  // ターミナルのタブを表示しない
-  "terminal.integrated.tabs.enabled": false,
   // ターミナルのシェル統合を無効化（補完やエラーヒントなどの機能を無効化）
   "terminal.integrated.shellIntegration.enabled": false,
+  // ターミナルのタブ一覧を無効化
+  "terminal.integrated.tabs.enabled": false,
   // ターミナルフォーカス時にVS Code側で処理するキーコマンド
   "terminal.integrated.commandsToSkipShell": [
     "workbench.action.focusAuxiliaryBar",
@@ -60,8 +50,6 @@
   "workbench.editor.closeOnFileDelete": true,
   // 拡張機能のおすすめを表示しない
   "extensions.ignoreRecommendations": true,
-  // 言語設定の矯正を無効化
-  "workbench.editor.untitled.hint": "hidden",
   // セキュリティ系オプションの無効化
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.emptyWindow": false,
@@ -69,6 +57,18 @@
   // =====================================================
   // 表示設定
   // =====================================================
+  // ウインドウ上部に表示する文字列の設定
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
+  // タブに表示する文字列の設定
+  "workbench.editor.labelFormat": "short",
+  // タブの表示設定
+  "workbench.editor.tabSizing": "shrink",
+  // インデントガイドを表示
+  "editor.guides.indentation": true,
+  // 行の折り返し
+  "editor.wordWrap": "on",
+  // スペニットをサジェストの最後に表示する
+  "editor.snippetSuggestions": "bottom",
   // スムーズスクロール
   "editor.smoothScrolling": true,
   // カーソル下のハイライトを無効化
@@ -79,6 +79,8 @@
   "editor.bracketPairColorization.enabled": true,
   // inlay hitsを無効化
   "editor.inlayHints.enabled": "off",
+  // inline chat hoverを無効化
+  "inlineChat.affordance": "off",
   // フォント設定
   // // mac
   // "editor.fontSize": 15, // フォントサイズ
@@ -112,7 +114,6 @@
       }
     }
   },
-
   /* 色設定カスタマイズ */
   "workbench.colorTheme": "Default Dark+",
   "workbench.colorCustomizations": {
