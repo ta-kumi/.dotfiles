@@ -32,13 +32,14 @@ if [[ ! -d ${HOME}/.tmux/plugins/tpm ]]; then
 	git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
 fi
 
-# zsh completion
-if [[ ! -e ${HOME}/.config/zsh/az.completion ]]; then
-	wget https://raw.githubusercontent.com/Azure/azure-cli/dev/az.completion -O ${HOME}/.config/zsh/az.completion
+# zsh completions
+if [[ ! -d ${HOME}/.config/zsh/zsh-completions ]]; then
+	mkdir -p ${HOME}/.config/zsh
+	git clone https://github.com/zsh-users/zsh-completions.git ${HOME}/.config/zsh/zsh-completions
 fi
-
-# bitbake completion
-if [[ ! -e ${HOME}/.config/zsh/_bitbake ]]; then
+## bitbake completion
+if [[ ! -e ${HOME}/.config/zsh/bitbake/_bitbake ]]; then
+	mkdir -p ${HOME}/.config/zsh/bitbake
 	wget https://raw.githubusercontent.com/antznin/zsh-bitbake/master/_bitbake \
-	-O ${HOME}/.config/zsh/_bitbake
+	-O ${HOME}/.config/zsh/bitbake/_bitbake
 fi

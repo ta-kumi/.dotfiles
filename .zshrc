@@ -302,17 +302,17 @@ unset PROMPT_COMMAND
 
 # 補完機能系
 ## FPATH系
-### brew
-if type brew &> /dev/null; then
-	FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+### zsh-completions
+if [[ -d ${HOME}/.config/zsh/zsh-completions ]]; then
+	FPATH="${HOME}/.config/zsh/zsh-completions/src:${FPATH}"
 fi
 ### rust(cargo)
 if type rustc &> /dev/null; then
 	FPATH="$(rustc --print sysroot)/share/zsh/site-functions:${FPATH}"
 fi
 ### bitbake
-if [[ -f "$HOME/.config/zsh/_bitbake" ]]; then
-	FPATH="${HOME}/.config/zsh:${FPATH}"
+if [[ -f "$HOME/.config/zsh/bitbake/_bitbake" ]]; then
+	FPATH="${HOME}/.config/zsh/bitbake:${FPATH}"
 fi
 ## bash互換レイヤーを有効化
 autoload -Uz bashcompinit && bashcompinit
@@ -327,7 +327,7 @@ setopt auto_menu
 zstyle ':completion:*:default' menu select=1
 ## 補完有効化
 autoload -Uz compinit && compinit
-## completion設定読み込みk系
+## completion設定読み込み系
 ### docker
 if type docker &> /dev/null; then
 	source <(docker completion zsh)
@@ -336,23 +336,9 @@ fi
 if type kubectl &> /dev/null; then
 	source <(kubectl completion zsh)
 fi
-### azure cli
-if [[ -f "$HOME/.config/zsh/az.completion" ]]; then
-	source $HOME/.config/zsh/az.completion
-fi
 ### rust(rustup)
 if type rustup &> /dev/null; then
 	source <(rustup completions zsh)
-fi
-### uv
-if type uv &> /dev/null; then
-	source <(uv generate-shell-completion zsh)
-fi
-### nvm
-if [[ -e "$HOME/.config/nvm" ]]; then
-	export NVM_DIR="$HOME/.config/nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 fi
 
 # 移動系
