@@ -4,6 +4,8 @@ bierner.markdown-mermaid
 bierner.markdown-preview-github-styles
 christian-kohler.path-intellisense
 codezombiech.gitignore
+cweijan.dbclient-jdbc
+cweijan.vscode-mysql-client2
 docker.docker
 donjayamanne.githistory
 dunstontc.viml
@@ -46,6 +48,7 @@ ms-vscode.remote-explorer
 openai.chatgpt
 plorefice.devicetree
 pranaygp.vscode-css-peek
+ranch-hand-robotics.rde-ros-2
 redhat.java
 redhat.vscode-yaml
 rogalmic.bash-debug
@@ -58,6 +61,7 @@ sianglim.slim
 tamasfe.even-better-toml
 tauri-apps.tauri-vscode
 twxs.cmake
+usernamehw.errorlens
 vadimcn.vscode-lldb
 vscjava.migrate-java-to-azure
 vscjava.vscode-java-debug

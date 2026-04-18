@@ -10,6 +10,8 @@
   "workbench.editor.empty.hint": "hidden",
   // 新規ワークスペースを別ウインドウで開く
   "window.openFoldersInNewWindow": "on",
+  // 設定などを子ウィンドウで開かない
+  "workbench.editor.useModal": "off",
   // ファイルエンコード
   "files.encoding": "utf8",
   // ファイルを開く際、文字セットとエンコードを推測する
@@ -71,6 +73,8 @@
   "editor.snippetSuggestions": "bottom",
   // スムーズスクロール
   "editor.smoothScrolling": true,
+  // 無効コードのグレーアウトを無効化
+  "editor.showUnused": false,
   // カーソル下のハイライトを無効化
   "editor.occurrencesHighlight": "multiFile",
   // カッコのハイライトを無効
@@ -250,6 +254,9 @@
   "python.analysis.autoImportCompletions": true,
   "python.terminal.activateEnvironment": false,
 
+  // --- Bitbake
+  "bitbake.disableConfigModification": true,
+
   // --- Code Runner
   "code-runner.runInTerminal": true,
   "code-runner.preserveFocus": false,
@@ -309,19 +316,17 @@
 
   // --- GitHub Copilot
   "github.copilot.enable": {
-    "*": true,
-    "plaintext": true,
-    "scminput": true,
-    "markdown": true
+    "*": false,
   },
   "github.copilot.nextEditSuggestions.enabled": true,
+
+  // -- Error Lens
+  "errorLens.messageEnabled": false,
+  "errorLens.gutterIconsEnabled": true,
 
   // --- git
   "git.openRepositoryInParentFolders": "always",
   "gitlens.rebaseEditor.openOnPausedRebase": false,
-
-  // --- MY SQL
-  "database-client.autoSync": true,
 
   // --- mawkdown preview github styles
   "markdown-preview-github-styles.colorTheme": "light",
