@@ -113,7 +113,7 @@ set hlsearch
 nnoremap <silent><Esc><Esc> :nohlsearch<CR><Esc>
 
 " ペースト時のスマートインデント無効化
-if &term =~ "xterm"
+if &term =~ 'xterm\|screen\|tmux'
 	let &t_SI .= "\e[?2004h"
 	let &t_EI .= "\e[?2004l"
 	let &pastetoggle = "\e[201~"
