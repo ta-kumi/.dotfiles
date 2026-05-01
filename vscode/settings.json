@@ -314,12 +314,6 @@
     "sml": "cd $dir && sml $fileName"
   },
 
-  // --- GitHub Copilot
-  "github.copilot.enable": {
-    "*": false,
-  },
-  "github.copilot.nextEditSuggestions.enabled": true,
-
   // -- Error Lens
   "errorLens.messageEnabled": false,
   "errorLens.gutterIconsEnabled": true,
