@@ -16,7 +16,6 @@ fill-labs.dependi
 formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 formulahendry.code-runner
-github.copilot-chat
 golang.go
 gruntfuggly.todo-tree
 hediet.vscode-drawio
@@ -48,7 +47,6 @@ ms-vscode.remote-explorer
 openai.chatgpt
 plorefice.devicetree
 pranaygp.vscode-css-peek
-ranch-hand-robotics.rde-ros-2
 redhat.java
 redhat.vscode-yaml
 rogalmic.bash-debug
