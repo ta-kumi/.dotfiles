@@ -33,13 +33,14 @@ if [[ ! -d ${HOME}/.tmux/plugins/tpm ]]; then
 fi
 
 # zsh completions
+## zsh completions
 if [[ ! -d ${HOME}/.config/zsh/zsh-completions ]]; then
 	mkdir -p ${HOME}/.config/zsh
 	git clone https://github.com/zsh-users/zsh-completions.git ${HOME}/.config/zsh/zsh-completions
 fi
 ## bitbake completion
-if [[ ! -e ${HOME}/.config/zsh/bitbake/_bitbake ]]; then
-	mkdir -p ${HOME}/.config/zsh/bitbake
+if [[ ! -e ${HOME}/.config/zsh/etc-completions/_bitbake ]]; then
+	mkdir -p ${HOME}/.config/zsh/etc-completions
 	wget https://raw.githubusercontent.com/antznin/zsh-bitbake/master/_bitbake \
-	-O ${HOME}/.config/zsh/bitbake/_bitbake
+	-O ${HOME}/.config/zsh/etc-completions/_bitbake
 fi

@@ -316,13 +316,13 @@ unset PROMPT_COMMAND
 if [[ -d ${HOME}/.config/zsh/zsh-completions ]]; then
 	FPATH="${HOME}/.config/zsh/zsh-completions/src:${FPATH}"
 fi
+### etc-completions
+if [[ -d ${HOME}/.config/zsh/etc-completions ]]; then
+	FPATH="${HOME}/.config/zsh/etc-completions:${FPATH}"
+fi
 ### rust(cargo)
 if type rustc &> /dev/null; then
 	FPATH="$(rustc --print sysroot)/share/zsh/site-functions:${FPATH}"
-fi
-### bitbake
-if [[ -f "$HOME/.config/zsh/bitbake/_bitbake" ]]; then
-	FPATH="${HOME}/.config/zsh/bitbake:${FPATH}"
 fi
 ## bash互換レイヤーを有効化
 autoload -Uz bashcompinit && bashcompinit
@@ -350,6 +350,14 @@ fi
 if type rustup &> /dev/null; then
 	source <(rustup completions zsh)
 fi
+### python(uv)
+if type uv &> /dev/null; then
+	source <(uv generate-shell-completion zsh)
+fi
+if type uvx &> /dev/null; then
+	source <(uvx --generate-shell-completion zsh)
+fi
+
 
 # 移動系
 ## ディレクトリ名だけで移動
