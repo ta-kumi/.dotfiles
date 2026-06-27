@@ -52,9 +52,33 @@
   "workbench.editor.closeOnFileDelete": true,
   // 拡張機能のおすすめを表示しない
   "extensions.ignoreRecommendations": true,
+  // gpuアクセラレーションの無効化
+  "editor.experimentalGpuAcceleration": "off",
+  "terminal.integrated.gpuAcceleration": "off",
   // セキュリティ系オプションの無効化
   "security.workspace.trust.enabled": false,
   "security.workspace.trust.emptyWindow": false,
+
+  // =====================================================
+  // OSごとの設定
+  // =====================================================
+  /* フォント設定 */
+  // // mac
+  // "editor.fontSize": 15, // フォントサイズ
+  // "editor.lineHeight": 16, // 行間幅
+  // "editor.letterSpacing": -0.63, // 文字の横幅
+  // "window.zoomLevel": 0.7, // ズームレベル
+  // windows
+  "editor.fontFamily": "Consolas, 'Courier New', monospace", // フォント設定
+  "editor.fontSize": 17, // フォントサイズ
+  "editor.lineHeight": 16, // 行間幅
+  "editor.letterSpacing": -1.0, // 文字の横幅
+  "window.zoomLevel": 0.7, // ズームレベル
+  /* 背景色設定 */
+  // // mac
+  // "workbench.colorTheme": "Default Dark+",
+  // windows
+  "workbench.colorTheme": "Dark+",
 
   // =====================================================
   // 表示設定
@@ -85,18 +109,6 @@
   "editor.inlayHints.enabled": "off",
   // inline chat hoverを無効化
   "inlineChat.affordance": "off",
-  // フォント設定
-  // // mac
-  // "editor.fontSize": 15, // フォントサイズ
-  // "editor.lineHeight": 16, // 行間幅
-  // "editor.letterSpacing": -0.63, // 文字の横幅
-  // "window.zoomLevel": 0.7, // ズームレベル
-  // windows
-  "editor.fontFamily": "Consolas, 'Courier New', monospace", // フォント設定
-  "editor.fontSize": 17, // フォントサイズ
-  "editor.lineHeight": 16, // 行間幅
-  "editor.letterSpacing": -1.0, // 文字の横幅
-  "window.zoomLevel": 0.7, // ズームレベル
   // アイコン設定（拡張機能）
   "workbench.iconTheme": "vscode-icons",
   // アクティビティーバーの位置を上部にする
@@ -119,7 +131,6 @@
     }
   },
   /* 色設定カスタマイズ */
-  "workbench.colorTheme": "Default Dark+",
   "workbench.colorCustomizations": {
     // エディタバックグラウンドの色
     "editor.background": "#131313",
