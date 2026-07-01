@@ -182,7 +182,7 @@ alias bb='bitbake -k'
 alias bc='bitbake -c clean'
 ## commands
 alias com='picocom /dev/ttyUSB0 -b 115200'
-alias dd='dd if=* of=* bs=64M status=progress'
+alias ddd='dd if=* of=* bs=64M status=progress'
 ## rust
 alias r='cargo'
 alias rn='cargo new'
@@ -309,6 +309,10 @@ enter_directory() {
 	[[ -f ".nvmrc" ]] && current_node_ver=`cat .nvmrc` && nvm use $current_node_ver
 }
 unset PROMPT_COMMAND
+## ros(jazzy)
+if [[ -f /opt/ros/jazzy/setup.zsh ]]; then
+	source /opt/ros/jazzy/setup.zsh
+fi
 
 # 補完機能系
 ## FPATH系
@@ -322,7 +326,12 @@ if [[ -d ${HOME}/.config/zsh/etc-completions ]]; then
 fi
 ### rust(cargo)
 if type rustc &> /dev/null; then
-	FPATH="$(rustc --print sysroot)/share/zsh/site-functions:${FPATH}"
+	rust_zsh_dir="$(rustc --print sysroot)/share/zsh"
+	if [[ -d "$rust_zsh_dir/site-functions" ]]; then
+		chmod -R go-w "$rust_zsh_dir" 2>/dev/null
+		FPATH="$rust_zsh_dir/site-functions:${FPATH}"
+	fi
+	unset rust_zsh_dir
 fi
 ## bash互換レイヤーを有効化
 autoload -Uz bashcompinit && bashcompinit
@@ -357,7 +366,11 @@ fi
 if type uvx &> /dev/null; then
 	source <(uvx --generate-shell-completion zsh)
 fi
-
+### ros
+if type register-python-argcomplete &> /dev/null; then
+	source <(register-python-argcomplete --shell zsh ros2)
+	source <(register-python-argcomplete --shell zsh colcon)
+fi
 
 # 移動系
 ## ディレクトリ名だけで移動
